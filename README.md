@@ -36,7 +36,7 @@ To manage Kubernetes containers workflows
 
 * Setup local Kubernetes: https://kubernetes.io/docs/setup/minikube/
 
-
+------
 
 #### xml2rdf
 
@@ -50,7 +50,7 @@ docker run --rm -it -v /data:/data xml2rdf  \
 	-b "http://data2services/" -g "http://data2services/graph"
 ```
 
-
+------
 
 #### Apache Drill
 
@@ -64,7 +64,7 @@ docker run -dit --rm -p 8047:8047 -p 31010:31010 --name drill -v /data:/data:ro 
 
 Access on http://localhost:8047/
 
-
+------
 
 #### AutoR2RML
 
@@ -80,7 +80,7 @@ docker run -it --rm --link drill:drill --link postgres:postgres -v /data:/data \
 	-b "http://data2services/" -g "http://data2services/graph"
 ```
 
-
+------
 
 #### R2RML
 
@@ -93,7 +93,7 @@ docker run -it --rm --link drill:drill --link postgres:postgres -v /data:/data \
 	r2rml /data/config.properties
 ```
 
-
+------
 
 #### RdfUpload
 
