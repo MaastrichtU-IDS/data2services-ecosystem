@@ -16,3 +16,6 @@
 [submodule "graphdb"]
 	path = graphdb
 	url = https://github.com/MaastrichtU-IDS/graphdb.git
+[submodule "lodestar"]
+	path = lodestar
+	url = https://github.com/EBISPOT/lodestar.git
