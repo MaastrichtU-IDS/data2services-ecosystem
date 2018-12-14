@@ -1,5 +1,7 @@
 # Data2Services ecosystem
 
+[Docker](https://docs.docker.com/install/) is required to run the modules.
+
 ## Clone
 
 ```shell
@@ -72,15 +74,19 @@ https://github.com/MaastrichtU-IDS/graphdb
 
 #### Halyard
 
-TODO
-
 https://github.com/Merck/Halyard
 
-
+TODO
 
 ### Graphs
 
 #### SPARQL
+
+##### LODEstar
+
+https://github.com/EBISPOT/lodestar
+
+TODO
 
 #### Neo4J
 
