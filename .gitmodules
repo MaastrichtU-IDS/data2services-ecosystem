@@ -1,0 +1,18 @@
+[submodule "xml2rdf"]
+	path = xml2rdf
+	url = https://github.com/MaastrichtU-IDS/xml2rdf.git
+[submodule "apache-drill"]
+	path = apache-drill
+	url = https://github.com/amalic/apache-drill.git
+[submodule "AutoR2RML"]
+	path = AutoR2RML
+	url = https://github.com/amalic/AutoR2RML.git
+[submodule "r2rml"]
+	path = r2rml
+	url = https://github.com/amalic/r2rml.git
+[submodule "RdfUpload"]
+	path = RdfUpload
+	url = https://github.com/MaastrichtU-IDS/RdfUpload.git
+[submodule "graphdb"]
+	path = graphdb
+	url = https://github.com/MaastrichtU-IDS/graphdb.git
