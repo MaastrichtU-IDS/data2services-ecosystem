@@ -32,6 +32,10 @@ git submodule update --init --recursive
 
 To manage Kubernetes containers workflows
 
+* Install Kubernetes: https://kubernetes.io/docs/tasks/tools/install-kubectl/
+
+* Setup local Kubernetes: https://kubernetes.io/docs/setup/minikube/
+
 #### xml2rdf
 
 Streams XML to a generic RDF representing the structure of the file. 
@@ -86,7 +90,13 @@ TODO
 
 https://github.com/EBISPOT/lodestar
 
-TODO
+```shell
+docker build -t lodestar .
+docker run -d -p 8080:8080 lodestar
+docker run -d -p 8080:8080 -v /data/config:/data lodestar
+```
+
+Access on http://localhost:8080/lodestar
 
 #### Neo4J
 
