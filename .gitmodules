@@ -22,3 +22,6 @@
 [submodule "rdf2hdt"]
 	path = rdf2hdt
 	url = https://github.com/vemonet/rdf2hdt.git
+[submodule "Server.js"]
+	path = Server.js
+	url = https://github.com/LinkedDataFragments/Server.js
