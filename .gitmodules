@@ -25,3 +25,6 @@
 [submodule "Server.js"]
 	path = Server.js
 	url = https://github.com/LinkedDataFragments/Server.js
+[submodule "data2services-download"]
+	path = data2services-download
+	url = https://github.com/MaastrichtU-IDS/data2services-download.git

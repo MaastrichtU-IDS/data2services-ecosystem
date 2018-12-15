@@ -8,6 +8,7 @@ if ! [ -f graphdb/graphdb-free-8.6.0-dist.zip ]; then
   curl http://go.pardot.com/e/45622/38-graphdb-free-8-6-0-dist-zip/5pyc3s/1295914437 -o graphdb/graphdb-free-8.6.0-dist.zip
 fi
 
+docker build -t data2services-download ./data2services-download
 docker build -t apache-drill ./apache-drill
 docker build -t autor2rml ./AutoR2RML
 docker build -t r2rml ./r2rml
