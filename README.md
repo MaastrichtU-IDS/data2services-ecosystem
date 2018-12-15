@@ -22,6 +22,8 @@ git submodule update --init --recursive
 
 ## Build
 
+Download [GraphDB](http://graphdb.ontotext.com/) and [Apache Drill](https://drill.apache.org/), then build docker images.
+
 ```shell
 ./build.sh
 ```
@@ -199,7 +201,10 @@ SPARQL query and URI resolution.
 https://github.com/EBISPOT/lodestar
 
 ```shell
-docker run -d -rm --name lodestar -p 8080:8080 -v /home/vemonet/sandbox/lodestar/config-docker/lode.properties:/usr/local/tomcat/webapps/lodestar/WEB-INF/classes/lode.properties lodestar
+docker run -d -rm --name lodestar -p 8080:8080
+
+# Not working:
+docker run -d -rm --name lodestar -p 8080:8080 -v /path/tolodestar/config-docker/lode.properties:/usr/local/tomcat/webapps/lodestar/WEB-INF/classes/lode.properties lodestar
 ```
 
 Access on http://localhost:8080/lodestar.
@@ -225,6 +230,8 @@ docker run -it -rm --name yasgui -p 4545:4545 yasgui
 *TODO*. Framework to perform federated query over a lot of different stores (triplestores, TPF, HDT)
 
 http://comunica.linkeddatafragments.org/
+
+---
 
 #### Neo4J
 
