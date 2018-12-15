@@ -15,3 +15,4 @@ docker build -t xml2rdf ./xml2rdf
 docker build -t rdf-upload ./RdfUpload
 docker build -t graphdb ./graphdb
 docker build -t lodestar ./lodestar
+docker build -t rdf2hdt ./rdf2hdt

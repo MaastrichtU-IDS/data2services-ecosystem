@@ -19,3 +19,6 @@
 [submodule "lodestar"]
 	path = lodestar
 	url = https://github.com/EBISPOT/lodestar.git
+[submodule "rdf2hdt"]
+	path = rdf2hdt
+	url = https://github.com/vemonet/rdf2hdt.git
