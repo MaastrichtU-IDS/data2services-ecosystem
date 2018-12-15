@@ -1,6 +1,8 @@
 # Data2Services ecosystem
 
-[Docker](https://docs.docker.com/install/) is required to run the modules.
+Modules available for the Data2Services framework. Enabling data processing and services exposure.
+
+Only [Docker](https://docs.docker.com/install/) is required to run the modules.
 
 ## Clone
 
@@ -30,13 +32,31 @@ git submodule update --init --recursive
 
 #### Argo
 
-To manage Kubernetes containers workflows
+*TODO*. Kubernetes containers workflows orchestrator
+
+https://github.com/argoproj/argo/
 
 * Install Kubernetes: https://kubernetes.io/docs/tasks/tools/install-kubectl/
 
-* Setup local Kubernetes: https://kubernetes.io/docs/setup/minikube/
+* Setup local Kubernetes
+  * https://kubernetes.io/docs/tasks/tools/install-minikube/
+  * https://kubernetes.io/docs/setup/minikube/
 
-------
+---
+
+#### data2services-download
+
+Download datasets using Shell scripts.
+
+https://github.com/MaastrichtU-IDS/data2services-download
+
+```shell
+docker run -it --rm -v /data/data2services:/data data2services-download \
+	--download-datasets aeolus,pharmgkb,ctd \
+	--username my_login --password my_password
+```
+
+---
 
 #### xml2rdf
 
@@ -50,11 +70,11 @@ docker run --rm -it -v /data:/data xml2rdf  \
 	-b "http://data2services/" -g "http://data2services/graph"
 ```
 
-------
+---
 
 #### Apache Drill
 
-Exposes text files (CSV, TSV, PSV) as SQL, and enables queries on large datasets: 
+Exposes text files (CSV, TSV, PSV) as SQL, and enables queries on large datasets.
 
 https://github.com/amalic/apache-drill
 
@@ -64,7 +84,7 @@ docker run -dit --rm -p 8047:8047 -p 31010:31010 --name drill -v /data:/data:ro 
 
 Access on http://localhost:8047/
 
-------
+---
 
 #### AutoR2RML
 
@@ -80,7 +100,7 @@ docker run -it --rm --link drill:drill --link postgres:postgres -v /data:/data \
 	-b "http://data2services/" -g "http://data2services/graph"
 ```
 
-------
+---
 
 #### R2RML
 
@@ -93,7 +113,7 @@ docker run -it --rm --link drill:drill --link postgres:postgres -v /data:/data \
 	r2rml /data/config.properties
 ```
 
-------
+---
 
 #### RdfUpload
 
@@ -123,11 +143,50 @@ docker run -d --rm --name graphdb -p 7200:7200 -v /data/graphdb:/opt/graphdb/hom
 
 Access on http://localhost:7200/
 
+---
+
 #### Halyard
+
+*TODO*.
 
 https://github.com/Merck/Halyard
 
-*TODO*
+---
+
+#### rdf2hdt
+
+Convert RDF to HDT files.
+
+https://github.com/vemonet/rdf2hdt
+
+```shell
+docker run -it -v /data/data2services:/data rdf2hdt /data/input.nt /data/output.hdt
+```
+
+---
+
+#### Linked Data Fragments Server
+
+Server supporting the Memento protocol to query over datasets (can be HDT or SPARQL).
+
+https://github.com/LinkedDataFragments/Server.js
+
+```shell
+docker run -p 3000:3000 -t -i --rm -v /data/data2services:/data -v $(pwd)/config.json:/tmp/config.json ldf-server /tmp/config.json
+
+# Query it
+curl -IL -H "Accept-Datetime: Wed, 15 Apr 2013 00:00:00 GMT" http://localhost:3000/timegate/dbpedia?subject=http%3A%2F%2Fdata2services%2Fmodel%2Fgo-category%2Fprocess
+```
+
+---
+
+#### Ostrich
+
+*TODO*. For temporal querying, using HDT and supporting SPARQL.
+
+https://github.com/rdfostrich/ostrich/
+
+---
 
 ### Graphs
 
@@ -135,16 +194,37 @@ https://github.com/Merck/Halyard
 
 ##### LODEstar
 
-*Work in progress*
+SPARQL query and URI resolution.
 
 https://github.com/EBISPOT/lodestar
 
 ```shell
-docker run -d -p 8080:8080 lodestar
-docker run -d -p 8080:8080 -v /data/config:/data lodestar
+docker run -d -rm --name lodestar -p 8080:8080 -v /home/vemonet/sandbox/lodestar/config-docker/lode.properties:/usr/local/tomcat/webapps/lodestar/WEB-INF/classes/lode.properties lodestar
 ```
 
-Access on http://localhost:8080/lodestar
+Access on http://localhost:8080/lodestar.
+
+Change SPARQL endpoint before docker build in `config-docker/lode.properties`
+
+---
+
+##### YASGUI
+
+*TODO*. SPARQL UI. NOT WORKING
+
+https://github.com/OpenTriply/YASGUI.server
+
+```shell
+docker run -it -rm --name yasgui -p 4545:4545 yasgui
+```
+
+---
+
+##### Comunica
+
+*TODO*. Framework to perform federated query over a lot of different stores (triplestores, TPF, HDT)
+
+http://comunica.linkeddatafragments.org/
 
 #### Neo4J
 
