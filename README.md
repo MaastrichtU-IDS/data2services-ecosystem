@@ -227,9 +227,13 @@ docker run -it -rm --name yasgui -p 4545:4545 yasgui
 
 ##### Comunica
 
-*TODO*. Framework to perform federated query over a lot of different stores (triplestores, TPF, HDT)
+Framework to perform federated query over a lot of different stores (triplestores, TPF, HDT)
 
-http://comunica.linkeddatafragments.org/
+https://github.com/vemonet/comunica.git
+
+```shell
+docker build -t comunica-sparql packages/actor-init-sparql
+```
 
 ---
 
