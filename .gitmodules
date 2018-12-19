@@ -28,3 +28,6 @@
 [submodule "data2services-download"]
 	path = data2services-download
 	url = https://github.com/MaastrichtU-IDS/data2services-download.git
+[submodule "comunica"]
+	path = comunica
+	url = https://github.com/vemonet/comunica.git
