@@ -69,7 +69,7 @@ https://github.com/MaastrichtU-IDS/xml2rdf
 ```shell
 docker run --rm -it -v /data:/data xml2rdf  \
 	-i "/data/data2services/file.xml.gz" -o "/data/data2services/file.nq.gz" \
-	-b "http://data2services/" -g "http://data2services/graph"
+	-g "http://data2services/graph"
 ```
 
 ---
