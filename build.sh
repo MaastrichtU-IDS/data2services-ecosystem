@@ -18,4 +18,5 @@ docker build -t graphdb ./graphdb
 docker build -t lodestar ./lodestar
 docker build -t rdf2hdt ./rdf2hdt
 docker build -t ldf-server ./Server.js
+docker build -t rdf4j-sparql-operations ./rdf4j-sparql-operations
 docker build -t comunica-sparql ./comunica/packages/actor-init-sparql

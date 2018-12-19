@@ -129,7 +129,31 @@ docker run -it --rm --link graphdb:graphdb -v /data/data2services:/data \
 	-url "http://graphdb:7200" -rep "test" -un "username" -pw "password"
 ```
 
+---
 
+#### rdf4j-sparql-operations
+
+Execute SPARQL operations (insert, construct, select) from `.rq` files using `rdf4j`.
+
+http://github.com/vemonet/rdf4j-sparql-operations
+
+```shell
+docker run -it --rm -v /data:/data sparql-rdf4j-operations -rq "/data/operations" -url "http://graphdb.dumontierlab.com/repositories/test" -un username -pw password -op construct
+```
+
+---
+
+#### Comunica
+
+Framework to perform federated query over a lot of different stores (triplestores, TPF, HDT)
+
+https://github.com/vemonet/comunica.git
+
+```shell
+docker run -it comunica-sparql http://fragments.dbpedia.org/2015-10/en "CONSTRUCT WHERE { ?s ?p ?o } LIMIT 100"
+```
+
+---
 
 ## Services
 
@@ -221,18 +245,6 @@ https://github.com/OpenTriply/YASGUI.server
 
 ```shell
 docker run -it -rm --name yasgui -p 4545:4545 yasgui
-```
-
----
-
-##### Comunica
-
-Framework to perform federated query over a lot of different stores (triplestores, TPF, HDT)
-
-https://github.com/vemonet/comunica.git
-
-```shell
-docker run -it comunica-sparql http://fragments.dbpedia.org/2015-10/en "CONSTRUCT WHERE { ?s ?p ?o } LIMIT 100"
 ```
 
 ---

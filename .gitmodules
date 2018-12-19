@@ -31,3 +31,6 @@
 [submodule "comunica"]
 	path = comunica
 	url = https://github.com/vemonet/comunica.git
+[submodule "rdf4j-sparql-operations"]
+	path = rdf4j-sparql-operations
+	url = https://github.com/vemonet/rdf4j-sparql-operations.git
