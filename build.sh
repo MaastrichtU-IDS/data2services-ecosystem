@@ -8,15 +8,15 @@ if ! [ -f graphdb/graphdb-free-8.6.0-dist.zip ]; then
   curl http://go.pardot.com/e/45622/38-graphdb-free-8-6-0-dist-zip/5pyc3s/1295914437 -o graphdb/graphdb-free-8.6.0-dist.zip
 fi
 
-docker build -t data2services-download ./data2services-download
-docker build -t apache-drill ./apache-drill
-docker build -t autor2rml ./AutoR2RML
-docker build -t r2rml ./r2rml
-docker build -t xml2rdf ./xml2rdf
-docker build -t rdf-upload ./RdfUpload
-docker build -t graphdb ./graphdb
-docker build -t lodestar ./lodestar
-docker build -t rdf2hdt ./rdf2hdt
-docker build -t ldf-server ./Server.js
-docker build -t rdf4j-sparql-operations ./rdf4j-sparql-operations
-docker build -t comunica-sparql ./comunica/packages/actor-init-sparql
+docker build -t data2services-download ./submodules/data2services-download
+docker build -t apache-drill ./submodules/apache-drill
+docker build -t autor2rml ./submodules/AutoR2RML
+docker build -t r2rml ./submodules/r2rml
+docker build -t xml2rdf ./submodules/xml2rdf
+docker build -t rdf-upload ./submodules/RdfUpload
+docker build -t graphdb ./submodules/graphdb
+docker build -t lodestar ./submodules/lodestar
+docker build -t rdf2hdt ./submodules/rdf2hdt
+docker build -t ldf-server ./submodules/Server.js
+docker build -t rdf4j-sparql-operations ./submodules/rdf4j-sparql-operations
+docker build -t comunica-sparql ./submodules/comunica/packages/actor-init-sparql

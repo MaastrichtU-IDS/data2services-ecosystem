@@ -1,36 +1,36 @@
 [submodule "xml2rdf"]
-	path = xml2rdf
+	path = submodules/xml2rdf
 	url = https://github.com/MaastrichtU-IDS/xml2rdf.git
 [submodule "apache-drill"]
-	path = apache-drill
+	path = submodules/apache-drill
 	url = https://github.com/amalic/apache-drill.git
 [submodule "AutoR2RML"]
-	path = AutoR2RML
+	path = submodules/AutoR2RML
 	url = https://github.com/amalic/AutoR2RML.git
 [submodule "r2rml"]
-	path = r2rml
+	path = submodules/r2rml
 	url = https://github.com/amalic/r2rml.git
 [submodule "RdfUpload"]
-	path = RdfUpload
+	path = submodules/RdfUpload
 	url = https://github.com/MaastrichtU-IDS/RdfUpload.git
 [submodule "graphdb"]
-	path = graphdb
+	path = submodules/graphdb
 	url = https://github.com/MaastrichtU-IDS/graphdb.git
 [submodule "lodestar"]
-	path = lodestar
+	path = submodules/lodestar
 	url = https://github.com/EBISPOT/lodestar.git
 [submodule "rdf2hdt"]
-	path = rdf2hdt
+	path = submodules/rdf2hdt
 	url = https://github.com/vemonet/rdf2hdt.git
 [submodule "Server.js"]
-	path = Server.js
+	path = submodules/Server.js
 	url = https://github.com/LinkedDataFragments/Server.js
 [submodule "data2services-download"]
-	path = data2services-download
+	path = submodules/data2services-download
 	url = https://github.com/MaastrichtU-IDS/data2services-download.git
 [submodule "comunica"]
-	path = comunica
+	path = submodules/comunica
 	url = https://github.com/vemonet/comunica.git
 [submodule "rdf4j-sparql-operations"]
-	path = rdf4j-sparql-operations
+	path = submodules/rdf4j-sparql-operations
 	url = https://github.com/vemonet/rdf4j-sparql-operations.git
