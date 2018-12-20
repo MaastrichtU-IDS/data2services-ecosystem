@@ -150,7 +150,7 @@ Framework to perform federated query over a lot of different stores (triplestore
 https://github.com/vemonet/comunica.git
 
 ```shell
-docker run -it comunica-sparql http://fragments.dbpedia.org/2015-10/en "CONSTRUCT WHERE { ?s ?p ?o } LIMIT 100"
+docker run -it comunica/actor-init-sparql http://fragments.dbpedia.org/2015-10/en "CONSTRUCT WHERE { ?s ?p ?o } LIMIT 100"
 ```
 
 ---
