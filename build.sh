@@ -19,4 +19,4 @@ docker build -t lodestar ./submodules/lodestar
 docker build -t rdf2hdt ./submodules/rdf2hdt
 docker build -t ldf-server ./submodules/Server.js
 docker build -t rdf4j-sparql-operations ./submodules/rdf4j-sparql-operations
-docker build -t comunica-sparql ./submodules/comunica/packages/actor-init-sparql
+docker pull comunica/actor-init-sparql
