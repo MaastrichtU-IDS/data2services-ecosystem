@@ -231,9 +231,9 @@ docker run -d -rm --name lodestar -p 8080:8080
 docker run -d -rm --name lodestar -p 8080:8080 -v /path/tolodestar/config-docker/lode.properties:/usr/local/tomcat/webapps/lodestar/WEB-INF/classes/lode.properties lodestar
 ```
 
-Access on http://localhost:8080/lodestar.
+* Change SPARQL endpoint before docker build in `config-docker/lode.properties`. 
 
-Change SPARQL endpoint before docker build in `config-docker/lode.properties`
+* Access on http://localhost:8080/lodestar.
 
 ---
 
@@ -249,6 +249,18 @@ docker run -it -rm --name yasgui -p 4545:4545 yasgui
 
 ---
 
-#### Neo4J
+#### Neo4j
+
+##### rdf2neo
+
+Tools to convert/load RDF into Neo4j.
+
+https://github.com/Rothamsted/rdf2neo
+
+```shell
+rdf2neo
+```
+
+---
 
 #### GraphQL
