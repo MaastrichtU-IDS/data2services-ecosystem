@@ -97,7 +97,7 @@ https://github.com/amalic/AutoR2RML
 ```shell
 docker run -it --rm --link drill:drill --link postgres:postgres -v /data:/data \
 	autor2rml -j "jdbc:drill:drillbit=drill:31010" -r \
-	-o "/data/data2services/mapping.ttl" -d "/data/data2services" \
+	-o "/data/data2services/mapping.trig" -d "/data/data2services" \
 	-u "postgres" -p "pwd" \
 	-b "http://data2services/" -g "http://data2services/graph"
 ```
