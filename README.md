@@ -225,10 +225,10 @@ SPARQL query and URI resolution.
 https://github.com/EBISPOT/lodestar
 
 ```shell
-docker run -d -rm --name lodestar -p 8080:8080
+docker run -d --rm --name lodestar -p 8080:8080 lodestar
 
 # Not working:
-docker run -d -rm --name lodestar -p 8080:8080 -v /path/tolodestar/config-docker/lode.properties:/usr/local/tomcat/webapps/lodestar/WEB-INF/classes/lode.properties lodestar
+docker run -d --rm --name lodestar lodestar -p 8080:8080 -v /path/tolodestar/config-docker/lode.properties:/usr/local/tomcat/webapps/lodestar/WEB-INF/classes/lode.properties lodestar
 ```
 
 * Change SPARQL endpoint before docker build in `config-docker/lode.properties`. 
@@ -244,7 +244,7 @@ docker run -d -rm --name lodestar -p 8080:8080 -v /path/tolodestar/config-docker
 https://github.com/OpenTriply/YASGUI.server
 
 ```shell
-docker run -it -rm --name yasgui -p 4545:4545 yasgui
+docker run -it --rm --name yasgui -p 4545:4545 yasgui
 ```
 
 ---
