@@ -26,7 +26,7 @@ Convenience script to build and pull all Docker images. You **need to download**
 ./build.sh
 ```
 
-* Every [Docker](https://docs.docker.com/install/) image can also be built independently
+* Every [Docker](https://docs.docker.com/install/) images can also be built independently
 
 
 
