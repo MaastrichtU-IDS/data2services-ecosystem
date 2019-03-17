@@ -22,7 +22,7 @@ git submodule update --init --recursive
 
 ## Build
 
-Convenience script to build and pull all components Docker images. You will need to download [GraphDB](http://graphdb.ontotext.com/) and [Apache Drill](https://drill.apache.org/).
+Convenience script to build and pull all components Docker images. You will need to download [GraphDB](https://www.ontotext.com/products/graphdb/) and [Apache Drill](https://drill.apache.org/download/).
 
 ```shell
 ./build.sh
@@ -63,6 +63,7 @@ docker run --rm -it -v /data:/data xml2rdf  \
 Exposes text files (CSV, TSV, PSV) as SQL, and enables queries on large datasets.
 
 ```shell
+wget -N http://apache.40b.nl/drill/drill-1.15.0/apache-drill-1.15.0.tar.gz -o ./submodules/apache-drill/apache-drill-1.15.0.tar.gz
 docker build -t apache-drill ./submodules/apache-drill
 docker run -dit --rm -p 8047:8047 -p 31010:31010 --name drill -v /data:/data:ro apache-drill
 ```
@@ -115,7 +116,7 @@ docker run -it --rm --link graphdb:graphdb -v /data/data2services:/data \
 
 ## [GraphDB](https://github.com/MaastrichtU-IDS/graphdb)
 
-Ontotext GraphDB triplestore with UI and multiple repositories.
+Ontotext GraphDB triplestore with UI and multiple repositories. [Download](https://www.ontotext.com/products/graphdb/) standalone zip file before build.
 
 ```shell
 docker build -t graphdb ./submodules/graphdb
