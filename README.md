@@ -4,7 +4,7 @@ This repository lists modules available for the **Data2Services framework**, ena
 
 Feel free to propose new modules using [pull requests](https://github.com/MaastrichtU-IDS/data2services-ecosystem/pulls). The list of modules we are planning to work on can be found in the [Wiki](https://github.com/MaastrichtU-IDS/data2services-ecosystem/wiki/Modules-to-develop).
 
-Only [Docker](https://docs.docker.com/install/) is required to run the modules. And a typical module should only require a few arguments to be run, making it easy to combine them.
+Only [Docker](https://docs.docker.com/install/) is required to run the modules. A typical module should only require a few arguments to be run, making it easy to combine them.
 
 ## Clone
 
@@ -25,6 +25,8 @@ Convenience script to build and pull all Docker images. You **need to download**
 ```shell
 ./build.sh
 ```
+
+* Each [Docker](https://docs.docker.com/install/) image can also be build separately
 
 
 
