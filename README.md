@@ -50,7 +50,8 @@ Streams XML to a generic RDF representing the structure of the file.
 ```shell
 docker build -t xml2rdf ./submodules/xml2rdf
 docker run --rm -it -v /data:/data xml2rdf  \
-	-i "/data/data2services/file.xml.gz" -o "/data/data2services/file.nq.gz" \
+	-i "/data/data2services/file.xml.gz" \
+	-o "/data/data2services/file.nq.gz" \
 	-g "https://w3id.org/data2services/graph"
 ```
 
@@ -63,7 +64,8 @@ Exposes tabular text files (CSV, TSV, PSV) as SQL, and enables queries on large 
 ```shell
 wget -N http://apache.40b.nl/drill/drill-1.15.0/apache-drill-1.15.0.tar.gz -o ./submodules/apache-drill/apache-drill-1.15.0.tar.gz
 docker build -t apache-drill ./submodules/apache-drill
-docker run -dit --rm -p 8047:8047 -p 31010:31010 --name drill -v /data:/data:ro apache-drill
+docker run -dit --rm -p 8047:8047 -p 31010:31010 \
+	--name drill -v /data:/data:ro apache-drill
 ```
 
 * Access at [http://localhost:8047/](http://localhost:8047/).
@@ -78,9 +80,11 @@ Automatically generate R2RML files from Relational databases (SQL, Postgresql). 
 docker build -t autor2rml ./submodules/AutoR2RML
 docker run -it --rm --link drill:drill --link postgres:postgres -v /data:/data \
 	autor2rml -j "jdbc:drill:drillbit=drill:31010" -r \
-	-o "/data/data2services/mapping.trig" -d "/data/data2services" \
+	-o "/data/data2services/mapping.trig" \
+	-d "/data/data2services" \
 	-u "postgres" -p "pwd" \
-	-b "https://w3id.org/data2services/" -g "https://w3id.org/data2services/graph"
+	-b "https://w3id.org/data2services/" \
+	-g "https://w3id.org/data2services/graph"
 ```
 
 ---
@@ -91,8 +95,8 @@ Convert Relational Databases to RDF using the R2RML mapping language. Process RB
 
 ```shell
 docker build -t r2rml ./submodules/r2rml
-docker run -it --rm --link drill:drill --link postgres:postgres -v /data:/data \
-	r2rml /data/config.properties
+docker run -it --rm --link drill:drill --link postgres:postgres \
+	-v /data:/data r2rml /data/config.properties
 ```
 
 ---
@@ -133,7 +137,10 @@ Ontotext GraphDB triplestore with UI and multiple repositories. Download [standa
 
 ```shell
 docker build -t graphdb ./submodules/graphdb
-docker run -d --rm --name graphdb -p 7200:7200 -v /data/graphdb:/opt/graphdb/home -v /data/graphdb-import:/root/graphdb-import graphdb
+docker run -d --rm --name graphdb -p 7200:7200 \
+	-v /data/graphdb:/opt/graphdb/home \
+	-v /data/graphdb-import:/root/graphdb-import \
+	graphdb
 ```
 
 * Access at [http://localhost:7200/](http://localhost:7200/).
@@ -177,7 +184,8 @@ Convert RDF to HDT files. *Header, Dictionary, Triples* is a binary serializatio
 
 ```shell
 docker build -t rdf2hdt ./submodules/rdf2hdt
-docker run -it -v /data/data2services:/data rdf2hdt /data/input.nt /data/output.hdt
+docker run -it -v /data/data2services:/data \
+	rdf2hdt /data/input.nt /data/output.hdt
 ```
 
 ---
@@ -219,7 +227,9 @@ Framework to perform federated query over a lot of different stores (triplestore
 
 ```shell
 docker pull comunica/actor-init-sparql
-docker run -it comunica/actor-init-sparql http://fragments.dbpedia.org/2015-10/en "CONSTRUCT WHERE { ?s ?p ?o } LIMIT 100"
+docker run -it comunica/actor-init-sparql \
+	http://fragments.dbpedia.org/2015-10/en \
+	"CONSTRUCT WHERE { ?s ?p ?o } LIMIT 100"
 ```
 
 ---
