@@ -154,7 +154,7 @@ docker run -d --rm --name graphdb -p 7200:7200 \
 	graphdb
 ```
 
-* Download [standalone zip file](https://www.ontotext.com/products/graphdb/) before build
+* Download [standalone zip file](https://www.ontotext.com/products/graphdb/) and place it in `submodules/graphdb` before *docker build*
 * Access at [http://localhost:7200/](http://localhost:7200/)
 
 ---
