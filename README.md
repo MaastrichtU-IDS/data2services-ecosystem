@@ -1,6 +1,6 @@
 # Get started
 
-This repository lists modules available for the **Data2Services framework**, enabling data processing to RDF and services exposure. 
+This repository lists modules available for the **Data2Services framework**, enabling data processing to [RDF](https://www.w3.org/RDF/) and services exposure. 
 
 Feel free to propose new modules using pull requests. The list of modules we are planning to work on can be found in the [Wiki](https://github.com/MaastrichtU-IDS/data2services-ecosystem/wiki/Modules-to-develop).
 
@@ -20,7 +20,7 @@ git submodule update --recursive --remote
 
 ## Build
 
-Convenience script to build and pull all Docker images. You will **need to download** [Apache Drill installation bundle](https://drill.apache.org/download/) and [GraphDB standalone zip](https://www.ontotext.com/products/graphdb/) (register to get an email with download URL).
+Convenience script to build and pull all Docker images. You **need to download** [Apache Drill installation bundle](https://drill.apache.org/download/) and [GraphDB standalone zip](https://www.ontotext.com/products/graphdb/) (register to get an email with download URL).
 
 ```shell
 ./build.sh
@@ -68,13 +68,13 @@ docker run -dit --rm -p 8047:8047 -p 31010:31010 \
 	--name drill -v /data:/data:ro apache-drill
 ```
 
-* Access at [http://localhost:8047/](http://localhost:8047/).
+* Access at [http://localhost:8047/](http://localhost:8047/)
 
 ---
 
 ## [AutoR2RML](https://github.com/amalic/AutoR2RML)
 
-Automatically generate R2RML files from Relational databases (SQL, Postgresql). Process RDB and can be combined with [Apache Drill](https://github.com/amalic/apache-drill) to process tabular files.
+Automatically generate [R2RML](https://www.w3.org/TR/r2rml/) files from Relational databases (SQL, Postgresql). Can be combined with [Apache Drill](https://github.com/amalic/apache-drill) to process tabular files.
 
 ```shell
 docker build -t autor2rml ./submodules/AutoR2RML
@@ -91,7 +91,7 @@ docker run -it --rm --link drill:drill --link postgres:postgres -v /data:/data \
 
 ## [R2RML](https://github.com/amalic/r2rml)
 
-Convert Relational Databases to RDF using the R2RML mapping language. Process RBD and can be combined with [Apache Drill](https://github.com/amalic/apache-drill) to process tabular files.
+Convert Relational Databases to RDF using the [R2RML](https://www.w3.org/TR/r2rml/) mapping language. Process RBD and can be combined with [Apache Drill](https://github.com/amalic/apache-drill) to process tabular files.
 
 ```shell
 docker build -t r2rml ./submodules/r2rml
@@ -117,7 +117,7 @@ docker run -it --rm --link graphdb:graphdb -v /data/data2services:/data \
 
 ## [PyShEx](https://github.com/hsolbrig/PyShEx)
 
-Validate RDF from a SPARQL endpoint against a ShEx file.
+Validate RDF from a SPARQL endpoint against a [ShEx](http://shex.io/) file.
 
 ```shell
 docker build -t pyshex ./submodules/PyShEx/docker
@@ -133,7 +133,7 @@ docker run --rm -it pyshex -gn '' -ss -ut -pr \
 
 ## [GraphDB](https://github.com/MaastrichtU-IDS/graphdb)
 
-Ontotext GraphDB triplestore with UI and multiple repositories. Download [standalone zip file](https://www.ontotext.com/products/graphdb/) before build.
+Ontotext GraphDB triplestore including GUI and multiple repositories. Download [standalone zip file](https://www.ontotext.com/products/graphdb/) before build.
 
 ```shell
 docker build -t graphdb ./submodules/graphdb
@@ -143,7 +143,7 @@ docker run -d --rm --name graphdb -p 7200:7200 \
 	graphdb
 ```
 
-* Access at [http://localhost:7200/](http://localhost:7200/).
+* Access at [http://localhost:7200/](http://localhost:7200/)
 
 ---
 
@@ -162,7 +162,7 @@ docker run --name virtuoso \
     -d tenforce/virtuoso
 ```
 
-* Access at [http://localhost:8890/](http://localhost:8890/).
+* Access at [http://localhost:8890/](http://localhost:8890/)
 * Admin login: `dba`
 
 ---
@@ -246,7 +246,7 @@ docker run -it --rm --name yasgui -p 8080:80 \
 	erikap/yasgui
 ```
 
-- Access at [http://localhost:8080/](http://localhost:8080/).
+- Access at [http://localhost:8080/](http://localhost:8080/)
 
 ## [LODEstar](https://github.com/EBISPOT/lodestar)
 
@@ -257,6 +257,6 @@ docker build -t lodestar ./submodules/lodestar
 docker run -d --rm --name lodestar -p 8080:8080 lodestar
 ```
 
-* Change SPARQL endpoint before docker build in `config-docker/lode.properties`. 
+* Change SPARQL endpoint before docker build in `config-docker/lode.properties`
 
-* Access at [http://localhost:8080/lodestar](http://localhost:8080/lodestar).
+* Access at [http://localhost:8080/lodestar](http://localhost:8080/lodestar)
