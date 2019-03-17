@@ -2,7 +2,7 @@
 
 This repository lists modules available for the **Data2Services framework**, enabling data processing to [RDF](https://www.w3.org/RDF/) and services exposure. 
 
-Feel free to propose new modules using pull requests. The list of modules we are planning to work on can be found in the [Wiki](https://github.com/MaastrichtU-IDS/data2services-ecosystem/wiki/Modules-to-develop).
+Feel free to propose new modules using [pull requests](https://github.com/MaastrichtU-IDS/data2services-ecosystem/pulls). The list of modules we are planning to work on can be found in the [Wiki](https://github.com/MaastrichtU-IDS/data2services-ecosystem/wiki/Modules-to-develop).
 
 Only [Docker](https://docs.docker.com/install/) is required to run the modules. And a typical module should only require a few arguments to be run, making it easy to combine them.
 
