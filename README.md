@@ -32,11 +32,9 @@ Download [GraphDB](http://graphdb.ontotext.com/) and [Apache Drill](https://dril
 
 # Convert to RDF
 
-### data2services-download
+### [data2services-download](https://github.com/MaastrichtU-IDS/data2services-download)
 
 Download datasets using Shell scripts.
-
-https://github.com/MaastrichtU-IDS/data2services-download
 
 ```shell
 docker build -t data2services-download ./submodules/data2services-download
@@ -47,11 +45,9 @@ docker run -it --rm -v /data/data2services:/data data2services-download \
 
 ---
 
-### xml2rdf
+### [xml2rdf](https://github.com/MaastrichtU-IDS/xml2rdf)
 
 Streams XML to a generic RDF representing the structure of the file. 
-
-https://github.com/MaastrichtU-IDS/xml2rdf
 
 ```shell
 docker build -t xml2rdf ./submodules/xml2rdf
