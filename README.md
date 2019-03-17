@@ -20,13 +20,13 @@ git submodule update --recursive --remote
 
 ## Build
 
-Convenience script to build and pull all Docker images. You **need to download** [Apache Drill installation bundle](https://drill.apache.org/download/) and [GraphDB standalone zip](https://www.ontotext.com/products/graphdb/) (register to get an email with download URL).
+Convenience script to build and pull all Docker images. You **need to download** the [Apache Drill installation bundle](https://drill.apache.org/download/) and the [GraphDB standalone zip](https://www.ontotext.com/products/graphdb/) (register to get an email with download URL).
 
 ```shell
 ./build.sh
 ```
 
-* Each [Docker](https://docs.docker.com/install/) image can also be build separately
+* Every [Docker](https://docs.docker.com/install/) image can also be built independently
 
 
 
