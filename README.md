@@ -51,7 +51,7 @@ Streams XML to a generic RDF representing the structure of the file.
 docker build -t xml2rdf ./submodules/xml2rdf
 docker run --rm -it -v /data:/data xml2rdf  \
 	-i "/data/data2services/file.xml.gz" -o "/data/data2services/file.nq.gz" \
-	-g "http://data2services/graph"
+	-g "https://w3id.org/data2services/graph"
 ```
 
 ---
@@ -80,7 +80,7 @@ docker run -it --rm --link drill:drill --link postgres:postgres -v /data:/data \
 	autor2rml -j "jdbc:drill:drillbit=drill:31010" -r \
 	-o "/data/data2services/mapping.trig" -d "/data/data2services" \
 	-u "postgres" -p "pwd" \
-	-b "http://data2services/" -g "http://data2services/graph"
+	-b "https://w3id.org/data2services/" -g "https://w3id.org/data2services/graph"
 ```
 
 ---
@@ -150,7 +150,7 @@ docker run --name virtuoso \
     -p 8890:8890 -p 1111:1111 \
     -e DBA_PASSWORD=password \
     -e SPARQL_UPDATE=true \
-    -e DEFAULT_GRAPH=http://www.example.com/my-graph \
+    -e DEFAULT_GRAPH=https://w3id.org/data2services/graph \
     -v /data/virtuoso:/data \
     -d tenforce/virtuoso
 ```
@@ -188,7 +188,9 @@ Server supporting the Memento protocol to query over datasets (can be HDT or SPA
 
 ```shell
 docker build -t ldf-server ./submodules/Server.js
-docker run -p 3000:3000 -t -i --rm -v /data/data2services:/data -v $(pwd)/config.json:/tmp/config.json ldf-server /tmp/config.json
+docker run -p 3000:3000 -t -i --rm \
+	-v /data/data2services:/data -v $(pwd)/config.json:/tmp/config.json \
+	ldf-server /tmp/config.json
 
 # Query example
 curl -IL -H "Accept-Datetime: Wed, 15 Apr 2013 00:00:00 GMT" http://localhost:3000/timegate/dbpedia?subject=http%3A%2F%2Fdata2services%2Fmodel%2Fgo-category%2Fprocess
