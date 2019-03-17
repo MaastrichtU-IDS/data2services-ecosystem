@@ -116,7 +116,7 @@ docker run -it --rm --link graphdb:graphdb -v /data/data2services:/data \
 Validate RDF from a SPARQL endpoint against a ShEx file.
 
 ```shell
-docker build -t pyshex docker
+docker build -t pyshex ./submodules/PyShEx/docker
 docker run --rm -it pyshex -gn '' -ss -ut -pr \
 	-sq 'select ?item where{?item a <http://w3id.org/biolink/vocab/Gene>} LIMIT 1' \
     http://graphdb.dumontierlab.com/repositories/ncats-red-kg \
