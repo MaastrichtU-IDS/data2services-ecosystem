@@ -22,7 +22,7 @@ git submodule update --init --recursive
 
 ## Build
 
-Download [GraphDB](http://graphdb.ontotext.com/) and [Apache Drill](https://drill.apache.org/), then build docker images.
+Convenience script to build and pull all components Docker images. You will need to download [GraphDB](http://graphdb.ontotext.com/) and [Apache Drill](https://drill.apache.org/).
 
 ```shell
 ./build.sh
@@ -126,42 +126,6 @@ Access on http://localhost:7200/
 
 ---
 
-## [Apache Fuseki TDB](https://github.com/stain/jena-docker)
-
-Persistent SPARQL server for Jena.
-
-```shell
-docker pull stain/jena-fuseki
-docker run -p 3030:3030 stain/jena-fuseki
-```
-
----
-
-## [rdf2hdt](https://github.com/vemonet/rdf2hdt)
-
-Convert RDF to HDT files.
-
-```shell
-docker build -t rdf2hdt ./submodules/rdf2hdt
-docker run -it -v /data/data2services:/data rdf2hdt /data/input.nt /data/output.hdt
-```
-
----
-
-## [Linked Data Fragments Server](https://github.com/LinkedDataFragments/Server.js)
-
-Server supporting the Memento protocol to query over datasets (can be HDT or SPARQL).
-
-```shell
-docker build -t ldf-server ./submodules/Server.js
-docker run -p 3000:3000 -t -i --rm -v /data/data2services:/data -v $(pwd)/config.json:/tmp/config.json ldf-server /tmp/config.json
-
-# Query it
-curl -IL -H "Accept-Datetime: Wed, 15 Apr 2013 00:00:00 GMT" http://localhost:3000/timegate/dbpedia?subject=http%3A%2F%2Fdata2services%2Fmodel%2Fgo-category%2Fprocess
-```
-
----
-
 ## [Virtuoso](https://github.com/tenforce/docker-virtuoso)
 
 Virtuoso Triplestore.
@@ -179,6 +143,42 @@ docker run --name virtuoso \
 
 * Access at http://localhost:8890/
 * Admin login: `dba`
+
+---
+
+## [Apache Fuseki TDB](https://github.com/stain/jena-docker)
+
+Persistent SPARQL server for Jena.
+
+```shell
+docker pull stain/jena-fuseki
+docker run -p 3030:3030 stain/jena-fuseki
+```
+
+---
+
+## [rdf2hdt](https://github.com/vemonet/rdf2hdt)
+
+Convert RDF to HDT files. *Header, Dictionary, Triples* is a binary serialization format for RDF  that keeps big datasets compressed while maintaining search and browse operations without prior decompression.
+
+```shell
+docker build -t rdf2hdt ./submodules/rdf2hdt
+docker run -it -v /data/data2services:/data rdf2hdt /data/input.nt /data/output.hdt
+```
+
+---
+
+## [Linked Data Fragments Server](https://github.com/LinkedDataFragments/Server.js)
+
+Server supporting the Memento protocol to query over datasets (can be HDT or SPARQL).
+
+```shell
+docker build -t ldf-server ./submodules/Server.js
+docker run -p 3000:3000 -t -i --rm -v /data/data2services:/data -v $(pwd)/config.json:/tmp/config.json ldf-server /tmp/config.json
+
+# Query example
+curl -IL -H "Accept-Datetime: Wed, 15 Apr 2013 00:00:00 GMT" http://localhost:3000/timegate/dbpedia?subject=http%3A%2F%2Fdata2services%2Fmodel%2Fgo-category%2Fprocess
+```
 
 ---
 
