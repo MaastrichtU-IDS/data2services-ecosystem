@@ -1,8 +1,10 @@
 # Get started
 
-Modules available for the Data2Services framework. Enabling data processing and services exposure. Feel free to propose new components using pull requests. The list of components we are planning to work on can be found in the [Wiki](https://github.com/MaastrichtU-IDS/data2services-ecosystem/wiki/Components-to-develop).
+This repository lists modules available for the **Data2Services framework**, enabling data processing to RDF and services exposure. 
 
-Only [Docker](https://docs.docker.com/install/) is required to run the modules.
+Feel free to propose new components using pull requests. The list of components we are planning to work on can be found in the [Wiki](https://github.com/MaastrichtU-IDS/data2services-ecosystem/wiki/Components-to-develop).
+
+Only [Docker](https://docs.docker.com/install/) is required to run the modules. And a typical component should only require a few arguments to be run, making it easy to combine them.
 
 ## Clone
 
@@ -70,7 +72,7 @@ docker run -dit --rm -p 8047:8047 -p 31010:31010 --name drill -v /data:/data:ro 
 
 ## [AutoR2RML](https://github.com/amalic/AutoR2RML)
 
-Automatically generate R2RML files from Relational databases (SQL, Postgresql). Process RBD and can be combined with Apache Drill to process tabular files.
+Automatically generate R2RML files from Relational databases (SQL, Postgresql). Process RDB and can be combined with [Apache Drill](https://github.com/amalic/apache-drill) to process tabular files.
 
 ```shell
 docker build -t autor2rml ./submodules/AutoR2RML
@@ -85,7 +87,7 @@ docker run -it --rm --link drill:drill --link postgres:postgres -v /data:/data \
 
 ## [R2RML](https://github.com/amalic/r2rml)
 
-Convert Relational Databases to RDF using the R2RML mapping language. Process RBD and can be combined with Apache Drill to process tabular files.
+Convert Relational Databases to RDF using the R2RML mapping language. Process RBD and can be combined with [Apache Drill](https://github.com/amalic/apache-drill) to process tabular files.
 
 ```shell
 docker build -t r2rml ./submodules/r2rml
@@ -97,7 +99,7 @@ docker run -it --rm --link drill:drill --link postgres:postgres -v /data:/data \
 
 ## [RdfUpload](https://github.com/MaastrichtU-IDS/RdfUpload)
 
-Upload RDF files to a triplestore. Only tested on GraphDB at the moment. 
+Upload RDF files to a triplestore. Only tested on [GraphDB](https://github.com/MaastrichtU-IDS/graphdb) at the moment. 
 
 ```shell
 docker build -t rdf-upload ./submodules/RdfUpload
@@ -113,7 +115,7 @@ docker run -it --rm --link graphdb:graphdb -v /data/data2services:/data \
 
 ## [GraphDB](https://github.com/MaastrichtU-IDS/graphdb)
 
-Ontotext GraphDB triplestore with UI and multiple repositories. [Download](https://www.ontotext.com/products/graphdb/) standalone zip file before build.
+Ontotext GraphDB triplestore with UI and multiple repositories. Download [standalone zip file](https://www.ontotext.com/products/graphdb/) before build.
 
 ```shell
 docker build -t graphdb ./submodules/graphdb
