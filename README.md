@@ -30,7 +30,7 @@ Download [GraphDB](http://graphdb.ontotext.com/) and [Apache Drill](https://dril
 
 
 
-# RDF conversion
+# Convert to RDF
 
 ### data2services-download
 
@@ -127,6 +127,8 @@ docker run -it --rm --link graphdb:graphdb -v /data/data2services:/data \
 
 ### GraphDB
 
+Ontotext GraphDB triplestore with UI and multiple repositories.
+
 https://github.com/MaastrichtU-IDS/graphdb
 
 ```shell
@@ -139,6 +141,8 @@ Access on http://localhost:7200/
 ---
 
 ### Apache Fuseki TDB
+
+Persistent SPARQL server for Jena.
 
 https://github.com/stain/jena-docker
 
@@ -175,6 +179,28 @@ docker run -p 3000:3000 -t -i --rm -v /data/data2services:/data -v $(pwd)/config
 # Query it
 curl -IL -H "Accept-Datetime: Wed, 15 Apr 2013 00:00:00 GMT" http://localhost:3000/timegate/dbpedia?subject=http%3A%2F%2Fdata2services%2Fmodel%2Fgo-category%2Fprocess
 ```
+
+---
+
+### Virtuoso
+
+Virtuoso Triplestore.
+
+https://github.com/tenforce/docker-virtuoso
+
+```shell
+docker pull tenforce/virtuoso
+docker run --name virtuoso \
+    -p 8890:8890 -p 1111:1111 \
+    -e DBA_PASSWORD=password \
+    -e SPARQL_UPDATE=true \
+    -e DEFAULT_GRAPH=http://www.example.com/my-graph \
+    -v /data/virtuoso:/data \
+    -d tenforce/virtuoso
+```
+
+* Access at http://localhost:8890/
+* Admin login: `dba`
 
 ---
 
