@@ -32,7 +32,7 @@ Download [GraphDB](http://graphdb.ontotext.com/) and [Apache Drill](https://dril
 
 # Convert to RDF
 
-### **[data2services-download](https://github.com/MaastrichtU-IDS/data2services-download)**
+## [data2services-download](https://github.com/MaastrichtU-IDS/data2services-download)
 
 Download datasets using Shell scripts.
 
@@ -45,7 +45,7 @@ docker run -it --rm -v /data/data2services:/data data2services-download \
 
 ---
 
-### **[xml2rdf](https://github.com/MaastrichtU-IDS/xml2rdf)**
+## [xml2rdf](https://github.com/MaastrichtU-IDS/xml2rdf)
 
 Streams XML to a generic RDF representing the structure of the file. 
 
@@ -58,7 +58,7 @@ docker run --rm -it -v /data:/data xml2rdf  \
 
 ---
 
-### [Apache Drill](https://github.com/amalic/apache-drill)
+## [Apache Drill](https://github.com/amalic/apache-drill)
 
 Exposes text files (CSV, TSV, PSV) as SQL, and enables queries on large datasets.
 
@@ -71,7 +71,7 @@ Access on http://localhost:8047/
 
 ---
 
-### [AutoR2RML](https://github.com/amalic/AutoR2RML)
+## [AutoR2RML](https://github.com/amalic/AutoR2RML)
 
 Automatically generate R2RML files from Relational databases (SQL, Postgresql). Can be combined with Apache Drill.
 
@@ -86,7 +86,7 @@ docker run -it --rm --link drill:drill --link postgres:postgres -v /data:/data \
 
 ---
 
-### [R2RML](https://github.com/amalic/r2rml)
+## [R2RML](https://github.com/amalic/r2rml)
 
 Convert Relational Databases to RDF using the R2RML mapping language. Can be combined with Apache Drill.
 
@@ -98,7 +98,7 @@ docker run -it --rm --link drill:drill --link postgres:postgres -v /data:/data \
 
 ---
 
-### [RdfUpload](https://github.com/MaastrichtU-IDS/RdfUpload)
+## [RdfUpload](https://github.com/MaastrichtU-IDS/RdfUpload)
 
 Upload RDF files to a triplestore. Only tested on GraphDB at the moment. 
 
@@ -113,7 +113,7 @@ docker run -it --rm --link graphdb:graphdb -v /data/data2services:/data \
 
 # Store RDF
 
-### [GraphDB](https://github.com/MaastrichtU-IDS/graphdb)
+## [GraphDB](https://github.com/MaastrichtU-IDS/graphdb)
 
 Ontotext GraphDB triplestore with UI and multiple repositories.
 
@@ -126,7 +126,7 @@ Access on http://localhost:7200/
 
 ---
 
-### [Apache Fuseki TDB](https://github.com/stain/jena-docker)
+## [Apache Fuseki TDB](https://github.com/stain/jena-docker)
 
 Persistent SPARQL server for Jena.
 
@@ -137,7 +137,7 @@ docker run -p 3030:3030 stain/jena-fuseki
 
 ---
 
-### [rdf2hdt](https://github.com/vemonet/rdf2hdt)
+## [rdf2hdt](https://github.com/vemonet/rdf2hdt)
 
 Convert RDF to HDT files.
 
@@ -148,7 +148,7 @@ docker run -it -v /data/data2services:/data rdf2hdt /data/input.nt /data/output.
 
 ---
 
-### [Linked Data Fragments Server](https://github.com/LinkedDataFragments/Server.js)
+## [Linked Data Fragments Server](https://github.com/LinkedDataFragments/Server.js)
 
 Server supporting the Memento protocol to query over datasets (can be HDT or SPARQL).
 
@@ -162,7 +162,7 @@ curl -IL -H "Accept-Datetime: Wed, 15 Apr 2013 00:00:00 GMT" http://localhost:30
 
 ---
 
-### [Virtuoso](https://github.com/tenforce/docker-virtuoso)
+## [Virtuoso](https://github.com/tenforce/docker-virtuoso)
 
 Virtuoso Triplestore.
 
@@ -184,7 +184,7 @@ docker run --name virtuoso \
 
 # Access RDF
 
-### [rdf4j-sparql-operations](http://github.com/vemonet/rdf4j-sparql-operations)
+## [rdf4j-sparql-operations](http://github.com/vemonet/rdf4j-sparql-operations)
 
 Execute SPARQL queries from string, URL or multiple files using *Rdf4j*.
 
@@ -197,7 +197,7 @@ docker run -it --rm rdf4j-sparql-operations -op select \
 
 ------
 
-### [Comunica](https://github.com/vemonet/comunica.git)
+## [Comunica](https://github.com/vemonet/comunica.git)
 
 Framework to perform federated query over a lot of different stores (triplestores, TPF, HDT)
 
@@ -208,7 +208,7 @@ docker run -it comunica/actor-init-sparql http://fragments.dbpedia.org/2015-10/e
 
 ---
 
-### [YASGUI](https://github.com/OpenTriply/YASGUI.server)
+## [YASGUI](https://github.com/OpenTriply/YASGUI.server)
 
 SPARQL UI. You might need to allow Cross-Origin Requests.
 
@@ -222,7 +222,7 @@ docker run -it --rm --name yasgui -p 8080:80 \
 
 - Access at http://localhost:8080/
 
-### [LODEstar](https://github.com/EBISPOT/lodestar)
+## [LODEstar](https://github.com/EBISPOT/lodestar)
 
 SPARQL query and URI resolution.
 
