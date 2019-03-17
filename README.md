@@ -61,7 +61,7 @@ docker run --rm -it -v /data:/data xml2rdf  \
 
 ## [Apache Drill](https://github.com/amalic/apache-drill)
 
-Exposes tabular text files (CSV, TSV, PSV) as SQL, and enables queries on large datasets. Used by [AutoR2RML](https://github.com/amalic/AutoR2RML) and [R2RML](https://github.com/amalic/r2rml) to convert tabular files to a generic RDF representation.
+Exposes tabular text files (CSV, TSV, PSV) as SQL, and enables queries on large datasets.
 
 ```shell
 wget -N http://apache.40b.nl/drill/drill-1.15.0/apache-drill-1.15.0.tar.gz -o ./submodules/apache-drill/apache-drill-1.15.0.tar.gz
@@ -70,13 +70,15 @@ docker run -dit --rm -p 8047:8047 -p 31010:31010 \
 	--name drill -v /data:/data:ro apache-drill
 ```
 
+* Download [Apache Drill install bundle](http://apache.40b.nl/drill/drill-1.15.0/apache-drill-1.15.0.tar.gz)
 * Access at [http://localhost:8047/](http://localhost:8047/)
+* Used by [AutoR2RML](https://github.com/amalic/AutoR2RML) and [R2RML](https://github.com/amalic/r2rml) to convert tabular files to a generic RDF representation
 
 ---
 
 ## [AutoR2RML](https://github.com/amalic/AutoR2RML)
 
-Automatically generate [R2RML](https://www.w3.org/TR/r2rml/) files from Relational databases (SQL, Postgresql). Can be combined with [Apache Drill](https://github.com/amalic/apache-drill) to process tabular files.
+Automatically generate [R2RML](https://www.w3.org/TR/r2rml/) files from Relational databases (SQL, Postgresql).
 
 ```shell
 docker build -t autor2rml ./submodules/AutoR2RML
@@ -89,11 +91,13 @@ docker run -it --rm --link drill:drill --link postgres:postgres -v /data:/data \
 	-g "https://w3id.org/data2services/graph"
 ```
 
+* Can be combined with [Apache Drill](https://github.com/amalic/apache-drill) to process tabular files.
+
 ---
 
 ## [R2RML](https://github.com/amalic/r2rml)
 
-Convert Relational Databases to RDF using the [R2RML](https://www.w3.org/TR/r2rml/) mapping language. Process RBD and can be combined with [Apache Drill](https://github.com/amalic/apache-drill) to process tabular files.
+Convert Relational Databases to RDF using the [R2RML](https://www.w3.org/TR/r2rml/) mapping language.
 
 ```shell
 docker build -t r2rml ./submodules/r2rml
@@ -102,12 +106,13 @@ docker run -it --rm --link drill:drill --link postgres:postgres \
 ```
 
 * A [config.properties](https://github.com/amalic/r2rml/blob/master/example/config.properties) file needs to be provided
+* Can be combined with [Apache Drill](https://github.com/amalic/apache-drill) to process tabular files.
 
 ---
 
 ## [RdfUpload](https://github.com/MaastrichtU-IDS/RdfUpload)
 
-Upload RDF files to a triplestore. Only tested on [GraphDB](https://github.com/MaastrichtU-IDS/graphdb) at the moment. 
+Upload RDF files to a triplestore.
 
 ```shell
 docker build -t rdf-upload ./submodules/RdfUpload
@@ -116,6 +121,8 @@ docker run -it --rm --link graphdb:graphdb -v /data/data2services:/data \
 	-url "http://graphdb:7200" -rep "test" \
 	-un "username" -pw "password"
 ```
+
+* Only tested on [GraphDB](https://github.com/MaastrichtU-IDS/graphdb) at the moment
 
 ---
 
@@ -137,7 +144,7 @@ docker run --rm -it pyshex -gn '' -ss -ut -pr \
 
 ## [GraphDB](https://github.com/MaastrichtU-IDS/graphdb)
 
-[Ontotext](https://www.ontotext.com/) GraphDB triplestore including GUI and multiple repositories. Download [standalone zip file](https://www.ontotext.com/products/graphdb/) before build.
+[Ontotext](https://www.ontotext.com/) GraphDB triplestore including GUI and multiple repositories.
 
 ```shell
 docker build -t graphdb ./submodules/graphdb
@@ -147,6 +154,7 @@ docker run -d --rm --name graphdb -p 7200:7200 \
 	graphdb
 ```
 
+* Download [standalone zip file](https://www.ontotext.com/products/graphdb/) before build
 * Access at [http://localhost:7200/](http://localhost:7200/)
 
 ---
@@ -232,7 +240,7 @@ docker run -it --rm rdf4j-sparql-operations -op select \
 
 ## [Comunica](https://github.com/vemonet/comunica.git)
 
-Framework to perform [federated queries](https://www.w3.org/TR/sparql11-federated-query/) over a lot of different stores (triplestores, [TPF](http://linkeddatafragments.org/in-depth/), [HDT](http://www.rdfhdt.org/))
+Framework to perform [federated queries](https://www.w3.org/TR/sparql11-federated-query/) over a lot of different stores (triplestores, [TPF](http://linkeddatafragments.org/in-depth/), [HDT](http://www.rdfhdt.org/)).
 
 ```shell
 docker pull comunica/actor-init-sparql
@@ -245,7 +253,7 @@ docker run -it comunica/actor-init-sparql \
 
 ## [YASGUI](https://github.com/OpenTriply/YASGUI.server)
 
-[Yet Another Sparql GUI](http://doc.yasgui.org/). Require to [allow Cross-Origin Requests](https://addons.mozilla.org/fr/firefox/addon/cors-everywhere/).
+[Yet Another Sparql GUI](http://doc.yasgui.org/).
 
 ```shell
 docker pull erikap/yasgui
@@ -255,6 +263,7 @@ docker run -it --rm --name yasgui -p 8080:80 \
 	erikap/yasgui
 ```
 
+- Require to [allow Cross-Origin Requests](https://addons.mozilla.org/fr/firefox/addon/cors-everywhere/)
 - Access at [http://localhost:8080/](http://localhost:8080/)
 
 ## [LODEstar](https://github.com/EBISPOT/lodestar)
