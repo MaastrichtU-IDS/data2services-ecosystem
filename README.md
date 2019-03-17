@@ -1,10 +1,8 @@
-# Data2Services ecosystem
-
 Modules available for the Data2Services framework. Enabling data processing and services exposure.
 
 Only [Docker](https://docs.docker.com/install/) is required to run the modules.
 
-## Clone
+# Clone
 
 ```shell
 # WARNING: for Windows execute it before cloning to fix bugs with newlines
@@ -20,7 +18,9 @@ cd data2services-ecosystem
 git submodule update --init --recursive
 ```
 
-## Build
+
+
+# Build
 
 Download [GraphDB](http://graphdb.ontotext.com/) and [Apache Drill](https://drill.apache.org/), then build docker images.
 
@@ -30,9 +30,9 @@ Download [GraphDB](http://graphdb.ontotext.com/) and [Apache Drill](https://dril
 
 
 
-## Data processing components
+# Data processing components
 
-#### Argo
+### Argo
 
 *TODO*. Kubernetes containers workflows orchestrator
 
@@ -46,7 +46,7 @@ https://github.com/argoproj/argo/
 
 ---
 
-#### data2services-download
+### data2services-download
 
 Download datasets using Shell scripts.
 
@@ -60,7 +60,7 @@ docker run -it --rm -v /data/data2services:/data data2services-download \
 
 ---
 
-#### xml2rdf
+### xml2rdf
 
 Streams XML to a generic RDF representing the structure of the file. 
 
@@ -74,7 +74,7 @@ docker run --rm -it -v /data:/data xml2rdf  \
 
 ---
 
-#### Apache Drill
+### Apache Drill
 
 Exposes text files (CSV, TSV, PSV) as SQL, and enables queries on large datasets.
 
@@ -88,7 +88,7 @@ Access on http://localhost:8047/
 
 ---
 
-#### AutoR2RML
+### AutoR2RML
 
 Automatically generate R2RML files from Relational databases (SQL, Postgresql). Can be combined with Apache Drill.
 
@@ -104,7 +104,7 @@ docker run -it --rm --link drill:drill --link postgres:postgres -v /data:/data \
 
 ---
 
-#### R2RML
+### R2RML
 
 Convert Relational Databases to RDF using the R2RML mapping language. Can be combined with Apache Drill.
 
@@ -117,7 +117,7 @@ docker run -it --rm --link drill:drill --link postgres:postgres -v /data:/data \
 
 ---
 
-#### RdfUpload
+### RdfUpload
 
 Upload RDF files to a triplestore. Only tested on GraphDB at the moment. 
 
@@ -131,7 +131,7 @@ docker run -it --rm --link graphdb:graphdb -v /data/data2services:/data \
 
 ---
 
-#### rdf4j-sparql-operations
+### rdf4j-sparql-operations
 
 A project to execute SPARQL queries from string, URL or multiple files using `rdf4j`.
 
@@ -145,7 +145,7 @@ docker run -it --rm rdf4j-sparql-operations -op select \
 
 ---
 
-#### Comunica
+### Comunica
 
 Framework to perform federated query over a lot of different stores (triplestores, TPF, HDT)
 
@@ -157,11 +157,11 @@ docker run -it comunica/actor-init-sparql http://fragments.dbpedia.org/2015-10/e
 
 ---
 
-## Services components
+# Services components
 
-### Triplestores
+## Triplestores
 
-#### GraphDB
+### GraphDB
 
 https://github.com/MaastrichtU-IDS/graphdb
 
@@ -173,7 +173,7 @@ Access on http://localhost:7200/
 
 ---
 
-#### Apache Fuseki TDB
+### Apache Fuseki TDB
 
 https://github.com/stain/jena-docker
 
@@ -183,7 +183,7 @@ docker run -p 3030:3030 stain/jena-fuseki
 
 ---
 
-#### Halyard
+### Halyard
 
 *TODO*.
 
@@ -191,7 +191,7 @@ https://github.com/Merck/Halyard
 
 ---
 
-#### rdf2hdt
+### rdf2hdt
 
 Convert RDF to HDT files.
 
@@ -203,7 +203,7 @@ docker run -it -v /data/data2services:/data rdf2hdt /data/input.nt /data/output.
 
 ---
 
-#### Linked Data Fragments Server
+### Linked Data Fragments Server
 
 Server supporting the Memento protocol to query over datasets (can be HDT or SPARQL).
 
@@ -218,7 +218,7 @@ curl -IL -H "Accept-Datetime: Wed, 15 Apr 2013 00:00:00 GMT" http://localhost:30
 
 ---
 
-#### Ostrich
+### Ostrich
 
 *TODO*. For temporal querying, using HDT and supporting SPARQL.
 
@@ -226,11 +226,9 @@ https://github.com/rdfostrich/ostrich/
 
 ---
 
-### Graphs
+## SPARQL Graphs
 
-#### SPARQL
-
-##### LODEstar
+### LODEstar
 
 SPARQL query and URI resolution.
 
@@ -249,7 +247,7 @@ docker run -d --rm --name lodestar lodestar -p 8080:8080 -v /path/tolodestar/con
 
 ---
 
-##### YASGUI
+### YASGUI
 
 *TODO*. SPARQL UI. NOT WORKING
 
@@ -261,9 +259,9 @@ docker run -it --rm --name yasgui -p 4545:4545 yasgui
 
 ---
 
-#### Neo4j
+## Property graphs
 
-##### rdf2neo
+### rdf2neo
 
 Tools to convert/load RDF into Neo4j.
 
@@ -275,4 +273,4 @@ rdf2neo
 
 ---
 
-#### GraphQL
+### GraphQL
