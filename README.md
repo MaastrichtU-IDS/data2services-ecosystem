@@ -60,7 +60,7 @@ docker run --rm -it -v /data:/data xml2rdf  \
 
 ## [Apache Drill](https://github.com/amalic/apache-drill)
 
-Exposes text files (CSV, TSV, PSV) as SQL, and enables queries on large datasets.
+Exposes tabular text files (CSV, TSV, PSV) as SQL, and enables queries on large datasets. Used by [AutoR2RML](https://github.com/amalic/AutoR2RML) and [R2RML](https://github.com/amalic/r2rml) to convert tabular files to a generic RDF representation.
 
 ```shell
 wget -N http://apache.40b.nl/drill/drill-1.15.0/apache-drill-1.15.0.tar.gz -o ./submodules/apache-drill/apache-drill-1.15.0.tar.gz
@@ -68,13 +68,13 @@ docker build -t apache-drill ./submodules/apache-drill
 docker run -dit --rm -p 8047:8047 -p 31010:31010 --name drill -v /data:/data:ro apache-drill
 ```
 
-Access on http://localhost:8047/
+* Access on http://localhost:8047/
 
 ---
 
 ## [AutoR2RML](https://github.com/amalic/AutoR2RML)
 
-Automatically generate R2RML files from Relational databases (SQL, Postgresql). Can be combined with Apache Drill.
+Automatically generate R2RML files from Relational databases (SQL, Postgresql). Process RBD and can be combined with Apache Drill to process tabular files.
 
 ```shell
 docker build -t autor2rml ./submodules/AutoR2RML
@@ -89,7 +89,7 @@ docker run -it --rm --link drill:drill --link postgres:postgres -v /data:/data \
 
 ## [R2RML](https://github.com/amalic/r2rml)
 
-Convert Relational Databases to RDF using the R2RML mapping language. Can be combined with Apache Drill.
+Convert Relational Databases to RDF using the R2RML mapping language. Process RBD and can be combined with Apache Drill to process tabular files.
 
 ```shell
 docker build -t r2rml ./submodules/r2rml
@@ -107,7 +107,8 @@ Upload RDF files to a triplestore. Only tested on GraphDB at the moment.
 docker build -t rdf-upload ./submodules/RdfUpload
 docker run -it --rm --link graphdb:graphdb -v /data/data2services:/data \
 	rdf-upload -m "HTTP" -if "/data" \
-	-url "http://graphdb:7200" -rep "test" -un "username" -pw "password"
+	-url "http://graphdb:7200" -rep "test" \
+	-un "username" -pw "password"
 ```
 
 ---
@@ -123,7 +124,7 @@ docker build -t graphdb ./submodules/graphdb
 docker run -d --rm --name graphdb -p 7200:7200 -v /data/graphdb:/opt/graphdb/home -v /data/graphdb-import:/root/graphdb-import graphdb
 ```
 
-Access on http://localhost:7200/
+* Access at http://localhost:7200/
 
 ---
 
@@ -211,7 +212,7 @@ docker run -it comunica/actor-init-sparql http://fragments.dbpedia.org/2015-10/e
 
 ## [YASGUI](https://github.com/OpenTriply/YASGUI.server)
 
-SPARQL UI. You might need to allow Cross-Origin Requests.
+SPARQL UI. Require to [allow Cross-Origin Requests](https://addons.mozilla.org/fr/firefox/addon/cors-everywhere/).
 
 ```shell
 docker pull erikap/yasgui
@@ -230,9 +231,6 @@ SPARQL query and URI resolution.
 ```shell
 docker build -t lodestar ./submodules/lodestar
 docker run -d --rm --name lodestar -p 8080:8080 lodestar
-
-# Not working:
-docker run -d --rm --name lodestar lodestar -p 8080:8080 -v /path/tolodestar/config-docker/lode.properties:/usr/local/tomcat/webapps/lodestar/WEB-INF/classes/lode.properties lodestar
 ```
 
 * Change SPARQL endpoint before docker build in `config-docker/lode.properties`. 
