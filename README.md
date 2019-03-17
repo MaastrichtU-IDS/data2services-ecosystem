@@ -39,6 +39,7 @@ Download datasets using Shell scripts.
 https://github.com/MaastrichtU-IDS/data2services-download
 
 ```shell
+docker build -t data2services-download ./submodules/data2services-download
 docker run -it --rm -v /data/data2services:/data data2services-download \
 	--download-datasets aeolus,pharmgkb,ctd \
 	--username my_login --password my_password
@@ -53,6 +54,7 @@ Streams XML to a generic RDF representing the structure of the file.
 https://github.com/MaastrichtU-IDS/xml2rdf
 
 ```shell
+docker build -t xml2rdf ./submodules/xml2rdf
 docker run --rm -it -v /data:/data xml2rdf  \
 	-i "/data/data2services/file.xml.gz" -o "/data/data2services/file.nq.gz" \
 	-g "http://data2services/graph"
@@ -67,6 +69,7 @@ Exposes text files (CSV, TSV, PSV) as SQL, and enables queries on large datasets
 https://github.com/amalic/apache-drill
 
 ```shell
+docker build -t apache-drill ./submodules/apache-drill
 docker run -dit --rm -p 8047:8047 -p 31010:31010 --name drill -v /data:/data:ro apache-drill
 ```
 
@@ -81,6 +84,7 @@ Automatically generate R2RML files from Relational databases (SQL, Postgresql). 
 https://github.com/amalic/AutoR2RML
 
 ```shell
+docker build -t autor2rml ./submodules/AutoR2RML
 docker run -it --rm --link drill:drill --link postgres:postgres -v /data:/data \
 	autor2rml -j "jdbc:drill:drillbit=drill:31010" -r \
 	-o "/data/data2services/mapping.trig" -d "/data/data2services" \
@@ -97,6 +101,7 @@ Convert Relational Databases to RDF using the R2RML mapping language. Can be com
 https://github.com/amalic/r2rml
 
 ```shell
+docker build -t r2rml ./submodules/r2rml
 docker run -it --rm --link drill:drill --link postgres:postgres -v /data:/data \
 	r2rml /data/config.properties
 ```
@@ -110,6 +115,7 @@ Upload RDF files to a triplestore. Only tested on GraphDB at the moment.
 https://github.com/MaastrichtU-IDS/RdfUpload
 
 ```shell
+docker build -t rdf-upload ./submodules/RdfUpload
 docker run -it --rm --link graphdb:graphdb -v /data/data2services:/data \
 	rdf-upload -m "HTTP" -if "/data" \
 	-url "http://graphdb:7200" -rep "test" -un "username" -pw "password"
@@ -124,6 +130,7 @@ A project to execute SPARQL queries from string, URL or multiple files using `rd
 http://github.com/vemonet/rdf4j-sparql-operations
 
 ```shell
+docker build -t rdf4j-sparql-operations ./submodules/rdf4j-sparql-operations
 docker run -it --rm rdf4j-sparql-operations -op select \
 	-sp "select distinct ?Concept where {[] a ?Concept} LIMIT 10" \
 	-ep "http://dbpedia.org/sparql"
@@ -138,6 +145,7 @@ Framework to perform federated query over a lot of different stores (triplestore
 https://github.com/vemonet/comunica.git
 
 ```shell
+docker pull comunica/actor-init-sparql
 docker run -it comunica/actor-init-sparql http://fragments.dbpedia.org/2015-10/en "CONSTRUCT WHERE { ?s ?p ?o } LIMIT 100"
 ```
 
@@ -150,6 +158,7 @@ docker run -it comunica/actor-init-sparql http://fragments.dbpedia.org/2015-10/e
 https://github.com/MaastrichtU-IDS/graphdb
 
 ```shell
+docker build -t graphdb ./submodules/graphdb
 docker run -d --rm --name graphdb -p 7200:7200 -v /data/graphdb:/opt/graphdb/home -v /data/graphdb-import:/root/graphdb-import graphdb
 ```
 
@@ -162,6 +171,7 @@ Access on http://localhost:7200/
 https://github.com/stain/jena-docker
 
 ```shell
+docker pull stain/jena-fuseki
 docker run -p 3030:3030 stain/jena-fuseki
 ```
 
@@ -174,6 +184,7 @@ Convert RDF to HDT files.
 https://github.com/vemonet/rdf2hdt
 
 ```shell
+docker build -t rdf2hdt ./submodules/rdf2hdt
 docker run -it -v /data/data2services:/data rdf2hdt /data/input.nt /data/output.hdt
 ```
 
@@ -186,6 +197,7 @@ Server supporting the Memento protocol to query over datasets (can be HDT or SPA
 https://github.com/LinkedDataFragments/Server.js
 
 ```shell
+docker build -t ldf-server ./submodules/Server.js
 docker run -p 3000:3000 -t -i --rm -v /data/data2services:/data -v $(pwd)/config.json:/tmp/config.json ldf-server /tmp/config.json
 
 # Query it
@@ -201,6 +213,7 @@ SPARQL query and URI resolution.
 https://github.com/EBISPOT/lodestar
 
 ```shell
+docker build -t lodestar ./submodules/lodestar
 docker run -d --rm --name lodestar -p 8080:8080 lodestar
 
 # Not working:
@@ -215,10 +228,16 @@ docker run -d --rm --name lodestar lodestar -p 8080:8080 -v /path/tolodestar/con
 
 ### YASGUI
 
-*TODO*. SPARQL UI. NOT WORKING
+SPARQL UI. You might need to allow Cross-Origin Requests.
 
 https://github.com/OpenTriply/YASGUI.server
 
 ```shell
-docker run -it --rm --name yasgui -p 4545:4545 yasgui
+docker pull erikap/yasgui
+docker run -it --rm --name yasgui -p 8080:80 \
+	-e "DEFAULT_SPARQL_ENDPOINT=http://dbpedia.org/sparql" \
+	-e "ENABLE_ENDPOINT_SELECTOR=true" \
+	erikap/yasgui
 ```
+
+* Access at http://localhost:8080/

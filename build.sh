@@ -20,3 +20,5 @@ docker build -t rdf2hdt ./submodules/rdf2hdt
 docker build -t ldf-server ./submodules/Server.js
 docker build -t rdf4j-sparql-operations ./submodules/rdf4j-sparql-operations
 docker pull comunica/actor-init-sparql
+docker pull erikap/yasgui
+docker pull stain/jena-fuseki
