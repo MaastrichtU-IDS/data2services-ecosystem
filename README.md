@@ -66,7 +66,7 @@ docker build -t apache-drill ./submodules/apache-drill
 docker run -dit --rm -p 8047:8047 -p 31010:31010 --name drill -v /data:/data:ro apache-drill
 ```
 
-* Access on http://localhost:8047/
+* Access at [http://localhost:8047/](http://localhost:8047/).
 
 ---
 
@@ -136,7 +136,7 @@ docker build -t graphdb ./submodules/graphdb
 docker run -d --rm --name graphdb -p 7200:7200 -v /data/graphdb:/opt/graphdb/home -v /data/graphdb-import:/root/graphdb-import graphdb
 ```
 
-* Access at http://localhost:7200/
+* Access at [http://localhost:7200/](http://localhost:7200/).
 
 ---
 
@@ -155,7 +155,7 @@ docker run --name virtuoso \
     -d tenforce/virtuoso
 ```
 
-* Access at http://localhost:8890/
+* Access at [http://localhost:8890/](http://localhost:8890/).
 * Admin login: `dba`
 
 ---
@@ -234,7 +234,7 @@ docker run -it --rm --name yasgui -p 8080:80 \
 	erikap/yasgui
 ```
 
-- Access at http://localhost:8080/
+- Access at [http://localhost:8080/](http://localhost:8080/).
 
 ## [LODEstar](https://github.com/EBISPOT/lodestar)
 
@@ -247,4 +247,4 @@ docker run -d --rm --name lodestar -p 8080:8080 lodestar
 
 * Change SPARQL endpoint before docker build in `config-docker/lode.properties`. 
 
-* Access at http://localhost:8080/lodestar.
+* Access at [http://localhost:8080/lodestar](http://localhost:8080/lodestar).
