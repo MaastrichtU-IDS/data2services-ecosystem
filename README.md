@@ -105,7 +105,7 @@ docker run -it --rm --link drill:drill --link postgres:postgres \
 	-v /data:/data r2rml /data/config.properties
 ```
 
-* A [config.properties](https://github.com/amalic/r2rml/blob/master/example/config.properties) file needs to be provided
+* Require a [config.properties](https://github.com/amalic/r2rml/blob/master/example/config.properties) file
 * Can be combined with [Apache Drill](https://github.com/amalic/apache-drill) to process tabular files.
 
 ---
@@ -221,7 +221,7 @@ docker run -p 3000:3000 -t -i --rm \
 curl -IL -H "Accept-Datetime: Wed, 15 Apr 2013 00:00:00 GMT" http://localhost:3000/timegate/dbpedia?subject=http%3A%2F%2Fdata2services%2Fmodel%2Fgo-category%2Fprocess
 ```
 
----
+* Require a [config.json](https://github.com/LinkedDataFragments/Server.js/blob/develop/config/config-example-memento.json) file
 
 # Access RDF
 
