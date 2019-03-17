@@ -133,12 +133,14 @@ docker run -it --rm --link graphdb:graphdb -v /data/data2services:/data \
 
 #### rdf4j-sparql-operations
 
-Execute SPARQL operations (insert, construct, select) from `.rq` files using `rdf4j`.
+A project to execute SPARQL queries from string, URL or multiple files using `rdf4j`.
 
 http://github.com/vemonet/rdf4j-sparql-operations
 
 ```shell
-docker run -it --rm -v /data:/data sparql-rdf4j-operations -rq "/data/operations" -url "http://graphdb.dumontierlab.com/repositories/test" -un username -pw password -op construct
+docker run -it --rm rdf4j-sparql-operations -op select \
+	-sp "select distinct ?Concept where {[] a ?Concept} LIMIT 10" \
+	-ep "http://dbpedia.org/sparql"
 ```
 
 ---
