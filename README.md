@@ -30,7 +30,7 @@ Download [GraphDB](http://graphdb.ontotext.com/) and [Apache Drill](https://dril
 
 
 
-## Data processing
+## Data processing components
 
 #### Argo
 
@@ -157,7 +157,7 @@ docker run -it comunica/actor-init-sparql http://fragments.dbpedia.org/2015-10/e
 
 ---
 
-## Services
+## Services components
 
 ### Triplestores
 
