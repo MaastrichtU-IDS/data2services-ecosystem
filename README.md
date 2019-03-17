@@ -99,6 +99,8 @@ docker run -it --rm --link drill:drill --link postgres:postgres \
 	-v /data:/data r2rml /data/config.properties
 ```
 
+* A [config.properties](https://github.com/amalic/r2rml/blob/master/example/config.properties) file needs to be provided
+
 ---
 
 ## [RdfUpload](https://github.com/MaastrichtU-IDS/RdfUpload)
@@ -167,14 +169,19 @@ docker run --name virtuoso \
 
 ---
 
-## [Apache Fuseki TDB](https://github.com/stain/jena-docker)
+## [Apache Fuseki TDB](https://github.com/stain/jena-docker/tree/master/jena-fuseki)
 
 Persistent [Fuseki](https://jena.apache.org/documentation/fuseki2/) SPARQL server for [Apache Jena](https://jena.apache.org/).
 
 ```shell
 docker pull stain/jena-fuseki
-docker run -p 3030:3030 stain/jena-fuseki
+docker run -p 3030:3030 \
+	-e ADMIN_PASSWORD=password \
+	-e JVM_ARGS=-Xmx2g \
+	stain/jena-fuseki
 ```
+
+* Access on [http://localhost:3030/](http://localhost:3030/) using login `admin`
 
 ---
 
