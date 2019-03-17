@@ -30,7 +30,7 @@ Download [GraphDB](http://graphdb.ontotext.com/) and [Apache Drill](https://dril
 
 
 
-# Data processing components
+# RDF conversion
 
 ### data2services-download
 
@@ -123,35 +123,7 @@ docker run -it --rm --link graphdb:graphdb -v /data/data2services:/data \
 
 ---
 
-### rdf4j-sparql-operations
-
-A project to execute SPARQL queries from string, URL or multiple files using `rdf4j`.
-
-http://github.com/vemonet/rdf4j-sparql-operations
-
-```shell
-docker build -t rdf4j-sparql-operations ./submodules/rdf4j-sparql-operations
-docker run -it --rm rdf4j-sparql-operations -op select \
-	-sp "select distinct ?Concept where {[] a ?Concept} LIMIT 10" \
-	-ep "http://dbpedia.org/sparql"
-```
-
----
-
-### Comunica
-
-Framework to perform federated query over a lot of different stores (triplestores, TPF, HDT)
-
-https://github.com/vemonet/comunica.git
-
-```shell
-docker pull comunica/actor-init-sparql
-docker run -it comunica/actor-init-sparql http://fragments.dbpedia.org/2015-10/en "CONSTRUCT WHERE { ?s ?p ?o } LIMIT 100"
-```
-
----
-
-# Services components
+# Store RDF
 
 ### GraphDB
 
@@ -206,23 +178,33 @@ curl -IL -H "Accept-Datetime: Wed, 15 Apr 2013 00:00:00 GMT" http://localhost:30
 
 ---
 
-### LODEstar
+# Access RDF
 
-SPARQL query and URI resolution.
+### rdf4j-sparql-operations
 
-https://github.com/EBISPOT/lodestar
+A project to execute SPARQL queries from string, URL or multiple files using `rdf4j`.
+
+http://github.com/vemonet/rdf4j-sparql-operations
 
 ```shell
-docker build -t lodestar ./submodules/lodestar
-docker run -d --rm --name lodestar -p 8080:8080 lodestar
-
-# Not working:
-docker run -d --rm --name lodestar lodestar -p 8080:8080 -v /path/tolodestar/config-docker/lode.properties:/usr/local/tomcat/webapps/lodestar/WEB-INF/classes/lode.properties lodestar
+docker build -t rdf4j-sparql-operations ./submodules/rdf4j-sparql-operations
+docker run -it --rm rdf4j-sparql-operations -op select \
+	-sp "select distinct ?Concept where {[] a ?Concept} LIMIT 10" \
+	-ep "http://dbpedia.org/sparql"
 ```
 
-* Change SPARQL endpoint before docker build in `config-docker/lode.properties`. 
+------
 
-* Access on http://localhost:8080/lodestar.
+### Comunica
+
+Framework to perform federated query over a lot of different stores (triplestores, TPF, HDT)
+
+https://github.com/vemonet/comunica.git
+
+```shell
+docker pull comunica/actor-init-sparql
+docker run -it comunica/actor-init-sparql http://fragments.dbpedia.org/2015-10/en "CONSTRUCT WHERE { ?s ?p ?o } LIMIT 100"
+```
 
 ---
 
@@ -240,4 +222,22 @@ docker run -it --rm --name yasgui -p 8080:80 \
 	erikap/yasgui
 ```
 
-* Access at http://localhost:8080/
+- Access at http://localhost:8080/
+
+### LODEstar
+
+SPARQL query and URI resolution.
+
+https://github.com/EBISPOT/lodestar
+
+```shell
+docker build -t lodestar ./submodules/lodestar
+docker run -d --rm --name lodestar -p 8080:8080 lodestar
+
+# Not working:
+docker run -d --rm --name lodestar lodestar -p 8080:8080 -v /path/tolodestar/config-docker/lode.properties:/usr/local/tomcat/webapps/lodestar/WEB-INF/classes/lode.properties lodestar
+```
+
+* Change SPARQL endpoint before docker build in `config-docker/lode.properties`. 
+
+* Access at http://localhost:8080/lodestar.
