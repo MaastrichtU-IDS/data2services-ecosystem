@@ -32,20 +32,6 @@ Download [GraphDB](http://graphdb.ontotext.com/) and [Apache Drill](https://dril
 
 # Data processing components
 
-### Argo
-
-*TODO*. Kubernetes containers workflows orchestrator
-
-https://github.com/argoproj/argo/
-
-* Install Kubernetes: https://kubernetes.io/docs/tasks/tools/install-kubectl/
-
-* Setup local Kubernetes
-  * https://kubernetes.io/docs/tasks/tools/install-minikube/
-  * https://kubernetes.io/docs/setup/minikube/
-
----
-
 ### data2services-download
 
 Download datasets using Shell scripts.
@@ -183,14 +169,6 @@ docker run -p 3030:3030 stain/jena-fuseki
 
 ---
 
-### Halyard
-
-*TODO*.
-
-https://github.com/Merck/Halyard
-
----
-
 ### rdf2hdt
 
 Convert RDF to HDT files.
@@ -215,14 +193,6 @@ docker run -p 3000:3000 -t -i --rm -v /data/data2services:/data -v $(pwd)/config
 # Query it
 curl -IL -H "Accept-Datetime: Wed, 15 Apr 2013 00:00:00 GMT" http://localhost:3000/timegate/dbpedia?subject=http%3A%2F%2Fdata2services%2Fmodel%2Fgo-category%2Fprocess
 ```
-
----
-
-### Ostrich
-
-*TODO*. For temporal querying, using HDT and supporting SPARQL.
-
-https://github.com/rdfostrich/ostrich/
 
 ---
 
@@ -256,21 +226,3 @@ https://github.com/OpenTriply/YASGUI.server
 ```shell
 docker run -it --rm --name yasgui -p 4545:4545 yasgui
 ```
-
----
-
-## Property graphs
-
-### rdf2neo
-
-Tools to convert/load RDF into Neo4j.
-
-https://github.com/Rothamsted/rdf2neo
-
-```shell
-rdf2neo
-```
-
----
-
-### GraphQL
