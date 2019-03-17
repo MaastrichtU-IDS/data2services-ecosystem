@@ -214,7 +214,8 @@ Server supporting the [Memento](https://mementoweb.org/guide/rfc/) protocol to q
 ```shell
 docker build -t ldf-server ./submodules/Server.js
 docker run -p 3000:3000 -t -i --rm \
-	-v /data/data2services:/data -v $(pwd)/config.json:/tmp/config.json \
+	-v /data/data2services:/data \
+	-v $(pwd)/config.json:/tmp/config.json \
 	ldf-server /tmp/config.json
 
 # Query example
@@ -222,6 +223,9 @@ curl -IL -H "Accept-Datetime: Wed, 15 Apr 2013 00:00:00 GMT" http://localhost:30
 ```
 
 * Require a [config.json](https://github.com/LinkedDataFragments/Server.js/blob/develop/config/config-example-memento.json) file
+* Access at [http://localhost:3000](http://localhost:3000)
+
+---
 
 # Access RDF
 
