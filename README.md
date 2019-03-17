@@ -17,7 +17,7 @@ git clone --recursive git@github.com:MaastrichtU-IDS/data2services-ecosystem.git
 cd data2services-ecosystem
 
 # Or pull the submodule after a normal git clone
-git submodule update --init --recursive
+git submodule update --recursive --remote
 ```
 
 ## Build
