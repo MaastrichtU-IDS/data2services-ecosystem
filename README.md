@@ -118,10 +118,12 @@ Validate RDF from a SPARQL endpoint against a ShEx file.
 ```shell
 docker build -t pyshex docker
 docker run --rm -it pyshex -gn '' -ss -ut -pr \
-	-sq 'select ?item where{?item a <http://w3id.org/biolink/vocab/Gene>} LIMIT 1'
-    http://graphdb.dumontierlab.com/repositories/ncats-red-kg 
+	-sq 'select ?item where{?item a <http://w3id.org/biolink/vocab/Gene>} LIMIT 1' \
+    http://graphdb.dumontierlab.com/repositories/ncats-red-kg \
     https://github.com/biolink/biolink-model/raw/master/shex/biolink-modelnc.shex
 ```
+
+---
 
 # Store RDF
 
