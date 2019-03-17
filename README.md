@@ -32,7 +32,7 @@ Download [GraphDB](http://graphdb.ontotext.com/) and [Apache Drill](https://dril
 
 # Convert to RDF
 
-### [data2services-download](https://github.com/MaastrichtU-IDS/data2services-download)
+### **[data2services-download](https://github.com/MaastrichtU-IDS/data2services-download)**
 
 Download datasets using Shell scripts.
 
@@ -45,7 +45,7 @@ docker run -it --rm -v /data/data2services:/data data2services-download \
 
 ---
 
-### [xml2rdf](https://github.com/MaastrichtU-IDS/xml2rdf)
+### **[xml2rdf](https://github.com/MaastrichtU-IDS/xml2rdf)**
 
 Streams XML to a generic RDF representing the structure of the file. 
 
@@ -58,11 +58,9 @@ docker run --rm -it -v /data:/data xml2rdf  \
 
 ---
 
-### Apache Drill
+### [Apache Drill](https://github.com/amalic/apache-drill)
 
 Exposes text files (CSV, TSV, PSV) as SQL, and enables queries on large datasets.
-
-https://github.com/amalic/apache-drill
 
 ```shell
 docker build -t apache-drill ./submodules/apache-drill
@@ -73,11 +71,9 @@ Access on http://localhost:8047/
 
 ---
 
-### AutoR2RML
+### [AutoR2RML](https://github.com/amalic/AutoR2RML)
 
 Automatically generate R2RML files from Relational databases (SQL, Postgresql). Can be combined with Apache Drill.
-
-https://github.com/amalic/AutoR2RML
 
 ```shell
 docker build -t autor2rml ./submodules/AutoR2RML
@@ -90,11 +86,9 @@ docker run -it --rm --link drill:drill --link postgres:postgres -v /data:/data \
 
 ---
 
-### R2RML
+### [R2RML](https://github.com/amalic/r2rml)
 
 Convert Relational Databases to RDF using the R2RML mapping language. Can be combined with Apache Drill.
-
-https://github.com/amalic/r2rml
 
 ```shell
 docker build -t r2rml ./submodules/r2rml
@@ -104,11 +98,9 @@ docker run -it --rm --link drill:drill --link postgres:postgres -v /data:/data \
 
 ---
 
-### RdfUpload
+### [RdfUpload](https://github.com/MaastrichtU-IDS/RdfUpload)
 
 Upload RDF files to a triplestore. Only tested on GraphDB at the moment. 
-
-https://github.com/MaastrichtU-IDS/RdfUpload
 
 ```shell
 docker build -t rdf-upload ./submodules/RdfUpload
@@ -121,11 +113,9 @@ docker run -it --rm --link graphdb:graphdb -v /data/data2services:/data \
 
 # Store RDF
 
-### GraphDB
+### [GraphDB](https://github.com/MaastrichtU-IDS/graphdb)
 
 Ontotext GraphDB triplestore with UI and multiple repositories.
-
-https://github.com/MaastrichtU-IDS/graphdb
 
 ```shell
 docker build -t graphdb ./submodules/graphdb
@@ -136,11 +126,9 @@ Access on http://localhost:7200/
 
 ---
 
-### Apache Fuseki TDB
+### [Apache Fuseki TDB](https://github.com/stain/jena-docker)
 
 Persistent SPARQL server for Jena.
-
-https://github.com/stain/jena-docker
 
 ```shell
 docker pull stain/jena-fuseki
@@ -149,11 +137,9 @@ docker run -p 3030:3030 stain/jena-fuseki
 
 ---
 
-### rdf2hdt
+### [rdf2hdt](https://github.com/vemonet/rdf2hdt)
 
 Convert RDF to HDT files.
-
-https://github.com/vemonet/rdf2hdt
 
 ```shell
 docker build -t rdf2hdt ./submodules/rdf2hdt
@@ -162,11 +148,9 @@ docker run -it -v /data/data2services:/data rdf2hdt /data/input.nt /data/output.
 
 ---
 
-### Linked Data Fragments Server
+### [Linked Data Fragments Server](https://github.com/LinkedDataFragments/Server.js)
 
 Server supporting the Memento protocol to query over datasets (can be HDT or SPARQL).
-
-https://github.com/LinkedDataFragments/Server.js
 
 ```shell
 docker build -t ldf-server ./submodules/Server.js
@@ -178,11 +162,9 @@ curl -IL -H "Accept-Datetime: Wed, 15 Apr 2013 00:00:00 GMT" http://localhost:30
 
 ---
 
-### Virtuoso
+### [Virtuoso](https://github.com/tenforce/docker-virtuoso)
 
 Virtuoso Triplestore.
-
-https://github.com/tenforce/docker-virtuoso
 
 ```shell
 docker pull tenforce/virtuoso
@@ -202,11 +184,9 @@ docker run --name virtuoso \
 
 # Access RDF
 
-### rdf4j-sparql-operations
+### [rdf4j-sparql-operations](http://github.com/vemonet/rdf4j-sparql-operations)
 
-A project to execute SPARQL queries from string, URL or multiple files using `rdf4j`.
-
-http://github.com/vemonet/rdf4j-sparql-operations
+Execute SPARQL queries from string, URL or multiple files using *Rdf4j*.
 
 ```shell
 docker build -t rdf4j-sparql-operations ./submodules/rdf4j-sparql-operations
@@ -217,11 +197,9 @@ docker run -it --rm rdf4j-sparql-operations -op select \
 
 ------
 
-### Comunica
+### [Comunica](https://github.com/vemonet/comunica.git)
 
 Framework to perform federated query over a lot of different stores (triplestores, TPF, HDT)
-
-https://github.com/vemonet/comunica.git
 
 ```shell
 docker pull comunica/actor-init-sparql
@@ -230,11 +208,9 @@ docker run -it comunica/actor-init-sparql http://fragments.dbpedia.org/2015-10/e
 
 ---
 
-### YASGUI
+### [YASGUI](https://github.com/OpenTriply/YASGUI.server)
 
 SPARQL UI. You might need to allow Cross-Origin Requests.
-
-https://github.com/OpenTriply/YASGUI.server
 
 ```shell
 docker pull erikap/yasgui
@@ -246,11 +222,9 @@ docker run -it --rm --name yasgui -p 8080:80 \
 
 - Access at http://localhost:8080/
 
-### LODEstar
+### [LODEstar](https://github.com/EBISPOT/lodestar)
 
 SPARQL query and URI resolution.
-
-https://github.com/EBISPOT/lodestar
 
 ```shell
 docker build -t lodestar ./submodules/lodestar
