@@ -1,8 +1,12 @@
+# Data2Services ecosystem
+
 Modules available for the Data2Services framework. Enabling data processing and services exposure.
 
 Only [Docker](https://docs.docker.com/install/) is required to run the modules.
 
-# Clone
+Feel free to propose new components using pull requests. The list of components we are planning to work on can be found in the [Wiki](https://github.com/MaastrichtU-IDS/data2services-ecosystem/wiki/Components-to-develop).
+
+## Clone
 
 ```shell
 # WARNING: for Windows execute it before cloning to fix bugs with newlines
@@ -18,9 +22,7 @@ cd data2services-ecosystem
 git submodule update --init --recursive
 ```
 
-
-
-# Build
+## Build
 
 Download [GraphDB](http://graphdb.ontotext.com/) and [Apache Drill](https://drill.apache.org/), then build docker images.
 
@@ -145,8 +147,6 @@ docker run -it comunica/actor-init-sparql http://fragments.dbpedia.org/2015-10/e
 
 # Services components
 
-## Triplestores
-
 ### GraphDB
 
 https://github.com/MaastrichtU-IDS/graphdb
@@ -195,8 +195,6 @@ curl -IL -H "Accept-Datetime: Wed, 15 Apr 2013 00:00:00 GMT" http://localhost:30
 ```
 
 ---
-
-## SPARQL Graphs
 
 ### LODEstar
 
