@@ -1,3 +1,5 @@
+[TOC]
+
 # Get started
 
 This repository lists modules available for the **Data2Services framework**, enabling data processing to [RDF](https://www.w3.org/RDF/) and services exposure. 
