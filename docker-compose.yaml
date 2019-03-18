@@ -1,0 +1,80 @@
+version: "3"
+services:
+    
+  drill:
+    build: ./submodules/apache-drill
+    volumes:
+      - /data:/data:ro
+    ports:
+      - 8047:8047
+      - 31010:31010
+    tty: true
+    networks:
+      - data2services
+  
+  graphdb:
+    build: ./submodules/graphdb
+    volumes:
+      - /data/graphdb:/opt/graphdb/home
+      - /data/graphdb-import:/root/graphdb-import
+    ports:
+      - 7200:7200
+    networks:
+      - data2services
+
+  virtuoso:
+    image: tenforce/virtuoso
+    volumes:
+      - /data/data2services:/data
+    ports: 
+      - 8890:8890 
+      - 1111:1111
+    environment: 
+      - DBA_PASSWORD=password
+      - SPARQL_UPDATE=true
+      - DEFAULT_GRAPH=https://w3id.org/data2services/graph
+    networks:
+      - data2services
+
+  jena-fuseki:
+    image: stain/jena-fuseki
+    ports: 
+      - 3030:3030
+    environment: 
+      - ADMIN_PASSWORD=password
+      - JVM_ARGS=-Xmx2g
+    networks:
+      - data2services
+
+  ldf-server:
+    build: ./submodules/Server.js
+    args:
+      - /tmp/config.json
+    volumes:
+      - /data/data2services:/data
+      - /data/config.json:/tmp/config.json
+    ports:
+      - 7200:7200
+    networks:
+      - data2services
+
+  yasgui:
+    image: erikap/yasgui
+    ports: 
+      - 8081:80
+    environment: 
+      - DEFAULT_SPARQL_ENDPOINT=http://dbpedia.org/sparql
+      - ENABLE_ENDPOINT_SELECTOR=true
+    networks:
+      - data2services
+
+  lodestar:
+    build: ./submodules/lodestar
+    ports:
+      - 8080:8080
+    networks:
+      - data2services
+
+networks:
+  data2services:
+    driver: bridge
