@@ -65,6 +65,7 @@ Exposes tabular text files (CSV, TSV, PSV) as SQL, and enables queries on large 
 
 ```shell
 wget -N http://apache.40b.nl/drill/drill-1.15.0/apache-drill-1.15.0.tar.gz -o ./submodules/apache-drill/apache-drill-1.15.0.tar.gz
+docker-compose up drill
 docker build -t apache-drill ./submodules/apache-drill
 docker run -dit --rm -p 8047:8047 -p 31010:31010 \
 	--name drill -v /data:/data:ro apache-drill
@@ -147,6 +148,7 @@ docker run --rm -it pyshex -gn '' -ss -ut -pr \
 [Ontotext](https://www.ontotext.com/) GraphDB triplestore including GUI and multiple repositories.
 
 ```shell
+docker-compose up graphdb
 docker build -t graphdb ./submodules/graphdb
 docker run -d --rm --name graphdb -p 7200:7200 \
 	-v /data/graphdb:/opt/graphdb/home \
@@ -164,6 +166,7 @@ docker run -d --rm --name graphdb -p 7200:7200 \
 [Virtuoso](https://virtuoso.openlinksw.com/) triplestore.
 
 ```shell
+docker-compose up virtuoso
 docker pull tenforce/virtuoso
 docker run --name virtuoso \
     -p 8890:8890 -p 1111:1111 \
@@ -184,6 +187,7 @@ docker run --name virtuoso \
 Persistent [Fuseki](https://jena.apache.org/documentation/fuseki2/) SPARQL server for [Apache Jena](https://jena.apache.org/).
 
 ```shell
+docker-compose up  jena-fuseki
 docker pull stain/jena-fuseki
 docker run -p 3030:3030 \
 	-e ADMIN_PASSWORD=password \
@@ -212,6 +216,7 @@ docker run -it -v /data/data2services:/data \
 Server supporting the [Memento](https://mementoweb.org/guide/rfc/) protocol to query over datasets (can be [HDT](http://www.rdfhdt.org/) or [SPARQL](https://www.w3.org/TR/sparql11-query/)).
 
 ```shell
+docker-compose up ldf-server
 docker build -t ldf-server ./submodules/Server.js
 docker run -p 3000:3000 -t -i --rm \
 	-v /data/data2services:/data \
@@ -260,6 +265,7 @@ docker run -it comunica/actor-init-sparql \
 [Yet Another Sparql GUI](http://doc.yasgui.org/).
 
 ```shell
+docker-compose up yasgui
 docker pull erikap/yasgui
 docker run -it --rm --name yasgui -p 8080:80 \
 	-e "DEFAULT_SPARQL_ENDPOINT=http://dbpedia.org/sparql" \
@@ -275,6 +281,7 @@ docker run -it --rm --name yasgui -p 8080:80 \
 [SPARQL](https://www.w3.org/TR/sparql11-query/) query and URI resolution.
 
 ```shell
+docker-compose up lodestar
 docker build -t lodestar ./submodules/lodestar
 docker run -d --rm --name lodestar -p 8080:8080 lodestar
 ```
