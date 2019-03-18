@@ -34,3 +34,6 @@
 [submodule "submodules/PyShEx"]
 	path = submodules/PyShEx
 	url = https://github.com/hsolbrig/PyShEx
+[submodule "submodules/node-solid-server"]
+	path = submodules/node-solid-server
+	url = https://github.com/solid/node-solid-server

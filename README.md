@@ -199,18 +199,6 @@ docker run -p 3030:3030 \
 
 ---
 
-## [rdf2hdt](https://github.com/vemonet/rdf2hdt)
-
-Convert RDF to [HDT](http://www.rdfhdt.org/) files. *Header, Dictionary, Triples* is a binary serialization format for RDF  that keeps big datasets compressed while maintaining search and browse operations without prior decompression.
-
-```shell
-docker build -t rdf2hdt ./submodules/rdf2hdt
-docker run -it -v /data/data2services:/data \
-	rdf2hdt /data/input.nt /data/output.hdt
-```
-
----
-
 ## [Linked Data Fragments Server](https://github.com/LinkedDataFragments/Server.js)
 
 Server supporting the [Memento](https://mementoweb.org/guide/rfc/) protocol to query over datasets (can be [HDT](http://www.rdfhdt.org/) or [SPARQL](https://www.w3.org/TR/sparql11-query/)).
@@ -229,6 +217,33 @@ curl -IL -H "Accept-Datetime: Wed, 15 Apr 2013 00:00:00 GMT" http://localhost:30
 
 * Require a [config.json](https://github.com/LinkedDataFragments/Server.js/blob/develop/config/config-example-memento.json) file
 * Access at [http://localhost:3000](http://localhost:3000)
+
+---
+
+## [node-solid-server](https://github.com/solid/node-solid-server)
+
+[Solid](https://solid.mit.edu/) server on top of the file-system in [NodeJS](https://nodejs.org/).
+
+```shell
+docker-compose up node-solid-server
+docker build -t node-solid-server ./submodules/node-solid-server
+docker run -p 8443:8443 --name solid node-solid-server
+```
+
+* Access on [http://localhost:8443](http://localhost:8443)
+* Edit config: `docker cp solid:/usr/src/app/config.json .`
+
+---
+
+## [rdf2hdt](https://github.com/vemonet/rdf2hdt)
+
+Convert RDF to [HDT](http://www.rdfhdt.org/) files. *Header, Dictionary, Triples* is a binary serialization format for RDF  that keeps big datasets compressed while maintaining search and browse operations without prior decompression.
+
+```shell
+docker build -t rdf2hdt ./submodules/rdf2hdt
+docker run -it -v /data/data2services:/data \
+	rdf2hdt /data/input.nt /data/output.hdt
+```
 
 ---
 

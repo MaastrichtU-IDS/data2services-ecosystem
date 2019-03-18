@@ -58,6 +58,15 @@ services:
     networks:
       - data2services
 
+  node-solid-server:
+    build: ./submodules/node-solid-server
+    #volumes:
+    #  - /data/node-solid-server:/usr/src/app
+    ports:
+      - 8443:8443
+    networks:
+      - data2services
+
   yasgui:
     image: erikap/yasgui
     ports: 
