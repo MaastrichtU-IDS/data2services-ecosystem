@@ -182,23 +182,6 @@ docker run --name virtuoso \
 
 ---
 
-## [Apache Fuseki TDB](https://github.com/stain/jena-docker/tree/master/jena-fuseki)
-
-Persistent [Fuseki](https://jena.apache.org/documentation/fuseki2/) SPARQL server for [Apache Jena](https://jena.apache.org/).
-
-```shell
-docker-compose up  jena-fuseki
-docker pull stain/jena-fuseki
-docker run -p 3030:3030 \
-	-e ADMIN_PASSWORD=password \
-	-e JVM_ARGS=-Xmx2g \
-	stain/jena-fuseki
-```
-
-* Access on [http://localhost:3030/](http://localhost:3030/) using login `admin`
-
----
-
 ## [Linked Data Fragments Server](https://github.com/LinkedDataFragments/Server.js)
 
 Server supporting the [Memento](https://mementoweb.org/guide/rfc/) protocol to query over datasets (can be [HDT](http://www.rdfhdt.org/) or [SPARQL](https://www.w3.org/TR/sparql11-query/)).
@@ -217,21 +200,6 @@ curl -IL -H "Accept-Datetime: Wed, 15 Apr 2013 00:00:00 GMT" http://localhost:30
 
 * Require a [config.json](https://github.com/LinkedDataFragments/Server.js/blob/develop/config/config-example-memento.json) file
 * Access at [http://localhost:3000](http://localhost:3000)
-
----
-
-## [node-solid-server](https://github.com/solid/node-solid-server)
-
-[Solid](https://solid.mit.edu/) server on top of the file-system in [NodeJS](https://nodejs.org/).
-
-```shell
-docker-compose up node-solid-server
-docker build -t node-solid-server ./submodules/node-solid-server
-docker run -p 8443:8443 --name solid node-solid-server
-```
-
-* Access on [http://localhost:8443](http://localhost:8443)
-* Edit config: `docker cp solid:/usr/src/app/config.json .`
 
 ---
 
@@ -256,8 +224,8 @@ Execute [SPARQL](https://www.w3.org/TR/sparql11-query/) queries from string, URL
 ```shell
 docker build -t rdf4j-sparql-operations ./submodules/rdf4j-sparql-operations
 docker run -it --rm rdf4j-sparql-operations -op select \
-	-sp "select distinct ?Concept where {[] a ?Concept} LIMIT 10" \
-	-ep "http://dbpedia.org/sparql"
+  -sp "select distinct ?Concept where {[] a ?Concept} LIMIT 10" \
+  -ep "http://dbpedia.org/sparql"
 ```
 
 ------
