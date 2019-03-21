@@ -9,10 +9,7 @@ Only [Docker](https://docs.docker.com/install/) is required to run the modules. 
 ## Clone
 
 ```shell
-# WARNING: fix newlines bug on Windows 
-git config --global core.autocrlf false
 git clone --recursive https://github.com/MaastrichtU-IDS/data2services-ecosystem.git
-cd data2services-ecosystem
 
 # Update submodules
 git submodule update --recursive --remote
