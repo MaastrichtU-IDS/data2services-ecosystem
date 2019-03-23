@@ -269,3 +269,31 @@ docker run -d --rm --name lodestar -p 8080:8080 lodestar
 * Change SPARQL endpoint before *docker build* in `config-docker/lode.properties`
 
 * Access at [http://localhost:8080/lodestar](http://localhost:8080/lodestar)
+
+Table of Contents
+=================
+
+   * [Get started](#get-started)
+      * [Clone](#clone)
+      * [Build](#build)
+   * [Convert to RDF](#convert-to-rdf)
+      * [<a href="https://github.com/MaastrichtU-IDS/data2services-download">data2services-download</a>](#data2services-download)
+      * [<a href="https://github.com/MaastrichtU-IDS/xml2rdf">xml2rdf</a>](#xml2rdf)
+      * [<a href="https://github.com/amalic/apache-drill">Apache Drill</a>](#apache-drill)
+      * [<a href="https://github.com/amalic/AutoR2RML">AutoR2RML</a>](#autor2rml)
+      * [<a href="https://github.com/amalic/r2rml">R2RML</a>](#r2rml)
+      * [<a href="https://github.com/MaastrichtU-IDS/RdfUpload">RdfUpload</a>](#rdfupload)
+      * [<a href="https://github.com/hsolbrig/PyShEx">PyShEx</a>](#pyshex)
+   * [Store RDF](#store-rdf)
+      * [<a href="https://github.com/MaastrichtU-IDS/graphdb">GraphDB</a>](#graphdb)
+      * [<a href="https://github.com/tenforce/docker-virtuoso">Virtuoso</a>](#virtuoso)
+      * [<a href="https://github.com/LinkedDataFragments/Server.js">Linked Data Fragments Server</a>](#linked-data-fragments-server)
+      * [<a href="https://github.com/vemonet/rdf2hdt">rdf2hdt</a>](#rdf2hdt)
+   * [Access RDF](#access-rdf)
+      * [<a href="http://github.com/vemonet/rdf4j-sparql-operations">rdf4j-sparql-operations</a>](#rdf4j-sparql-operations)
+      * [<a href="https://github.com/vemonet/comunica.git">Comunica</a>](#comunica)
+      * [<a href="https://github.com/OpenTriply/YASGUI.server">YASGUI</a>](#yasgui)
+      * [<a href="https://github.com/EBISPOT/lodestar">LODEstar</a>](#lodestar)
+   * [Table of Contents](#table-of-contents)
+
+Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
