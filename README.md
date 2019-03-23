@@ -6,7 +6,7 @@ Feel free to propose new modules using [pull requests](https://github.com/Maastr
 
 Only [Docker](https://docs.docker.com/install/) is required to run the modules. A typical module should only require a few arguments to be run, making it easy to combine them.
 
-## Clone
+### Clone
 
 ```shell
 git clone --recursive https://github.com/MaastrichtU-IDS/data2services-ecosystem.git
@@ -15,7 +15,7 @@ git clone --recursive https://github.com/MaastrichtU-IDS/data2services-ecosystem
 git submodule update --recursive --remote
 ```
 
-## Build
+### Build
 
 Convenience script to build and pull all Docker images. You **need to download** the [Apache Drill installation bundle](https://drill.apache.org/download/) and the [GraphDB standalone zip](https://www.ontotext.com/products/graphdb/) (register to get an email with download URL).
 
@@ -29,7 +29,7 @@ Convenience script to build and pull all Docker images. You **need to download**
 
 # Convert to RDF
 
-## [data2services-download](https://github.com/MaastrichtU-IDS/data2services-download)
+### [data2services-download](https://github.com/MaastrichtU-IDS/data2services-download)
 
 Download datasets using [Shell scripts](https://github.com/MaastrichtU-IDS/data2services-download/blob/master/datasets/TEMPLATE/download.sh).
 
@@ -42,7 +42,7 @@ docker run -it --rm -v /data/data2services:/data data2services-download \
 
 ---
 
-## [xml2rdf](https://github.com/MaastrichtU-IDS/xml2rdf)
+### [xml2rdf](https://github.com/MaastrichtU-IDS/xml2rdf)
 
 Streams XML to a [generic RDF](https://github.com/MaastrichtU-IDS/xml2rdf#rdf-model) representing the structure of the file. 
 
@@ -56,7 +56,7 @@ docker run --rm -it -v /data:/data xml2rdf  \
 
 ---
 
-## [Apache Drill](https://github.com/amalic/apache-drill)
+### [Apache Drill](https://github.com/amalic/apache-drill)
 
 Exposes tabular text files (CSV, TSV, PSV) as SQL, and enables queries on large datasets.
 
@@ -74,7 +74,7 @@ docker run -dit --rm -p 8047:8047 -p 31010:31010 \
 
 ---
 
-## [AutoR2RML](https://github.com/amalic/AutoR2RML)
+### [AutoR2RML](https://github.com/amalic/AutoR2RML)
 
 Automatically generate [R2RML](https://www.w3.org/TR/r2rml/) files from Relational databases (SQL, Postgresql).
 
@@ -93,7 +93,7 @@ docker run -it --rm --link drill:drill --link postgres:postgres -v /data:/data \
 
 ---
 
-## [R2RML](https://github.com/amalic/r2rml)
+### [R2RML](https://github.com/amalic/r2rml)
 
 Convert Relational Databases to RDF using the [R2RML](https://www.w3.org/TR/r2rml/) mapping language.
 
@@ -108,7 +108,7 @@ docker run -it --rm --link drill:drill --link postgres:postgres \
 
 ---
 
-## [RdfUpload](https://github.com/MaastrichtU-IDS/RdfUpload)
+### [RdfUpload](https://github.com/MaastrichtU-IDS/RdfUpload)
 
 Upload RDF files to a triplestore.
 
@@ -124,7 +124,7 @@ docker run -it --rm --link graphdb:graphdb -v /data/data2services:/data \
 
 ---
 
-## [PyShEx](https://github.com/hsolbrig/PyShEx)
+### [PyShEx](https://github.com/hsolbrig/PyShEx)
 
 Validate RDF from a SPARQL endpoint against a [ShEx](http://shex.io/) file.
 
@@ -140,7 +140,7 @@ docker run --rm -it pyshex -gn '' -ss -ut -pr \
 
 # Store RDF
 
-## [GraphDB](https://github.com/MaastrichtU-IDS/graphdb)
+### [GraphDB](https://github.com/MaastrichtU-IDS/graphdb)
 
 [Ontotext](https://www.ontotext.com/) GraphDB triplestore including GUI and multiple repositories.
 
@@ -158,7 +158,7 @@ docker run -d --rm --name graphdb -p 7200:7200 \
 
 ---
 
-## [Virtuoso](https://github.com/tenforce/docker-virtuoso)
+### [Virtuoso](https://github.com/tenforce/docker-virtuoso)
 
 [Virtuoso](https://virtuoso.openlinksw.com/) triplestore.
 
@@ -179,7 +179,7 @@ docker run --name virtuoso \
 
 ---
 
-## [Linked Data Fragments Server](https://github.com/LinkedDataFragments/Server.js)
+### [Linked Data Fragments Server](https://github.com/LinkedDataFragments/Server.js)
 
 Server supporting the [Memento](https://mementoweb.org/guide/rfc/) protocol to query over datasets (can be [HDT](http://www.rdfhdt.org/) or [SPARQL](https://www.w3.org/TR/sparql11-query/)).
 
@@ -200,7 +200,7 @@ curl -IL -H "Accept-Datetime: Wed, 15 Apr 2013 00:00:00 GMT" http://localhost:30
 
 ---
 
-## [rdf2hdt](https://github.com/vemonet/rdf2hdt)
+### [rdf2hdt](https://github.com/vemonet/rdf2hdt)
 
 Convert RDF to [HDT](http://www.rdfhdt.org/) files. *Header, Dictionary, Triples* is a binary serialization format for RDF  that keeps big datasets compressed while maintaining search and browse operations without prior decompression.
 
@@ -214,7 +214,7 @@ docker run -it -v /data/data2services:/data \
 
 # Access RDF
 
-## [rdf4j-sparql-operations](http://github.com/vemonet/rdf4j-sparql-operations)
+### [rdf4j-sparql-operations](http://github.com/vemonet/rdf4j-sparql-operations)
 
 Execute [SPARQL](https://www.w3.org/TR/sparql11-query/) queries from string, URL or multiple files using [RDF4J](http://rdf4j.org/).
 
@@ -227,7 +227,7 @@ docker run -it --rm rdf4j-sparql-operations -op select \
 
 ------
 
-## [Comunica](https://github.com/vemonet/comunica.git)
+### [Comunica](https://github.com/vemonet/comunica.git)
 
 Framework to perform [federated queries](https://www.w3.org/TR/sparql11-federated-query/) over a lot of different stores (triplestores, [TPF](http://linkeddatafragments.org/in-depth/), [HDT](http://www.rdfhdt.org/)).
 
@@ -240,7 +240,7 @@ docker run -it comunica/actor-init-sparql \
 
 ---
 
-## [YASGUI](https://github.com/OpenTriply/YASGUI.server)
+### [YASGUI](https://github.com/OpenTriply/YASGUI.server)
 
 [Yet Another Sparql GUI](http://doc.yasgui.org/).
 
@@ -256,7 +256,7 @@ docker run -it --rm --name yasgui -p 8080:80 \
 - Require to [allow Cross-Origin Requests](https://addons.mozilla.org/fr/firefox/addon/cors-everywhere/)
 - Access at [http://localhost:8080/](http://localhost:8080/)
 
-## [LODEstar](https://github.com/EBISPOT/lodestar)
+### [LODEstar](https://github.com/EBISPOT/lodestar)
 
 [SPARQL](https://www.w3.org/TR/sparql11-query/) query and URI resolution.
 
