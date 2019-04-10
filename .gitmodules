@@ -28,9 +28,6 @@
 [submodule "data2services-download"]
 	path = submodules/data2services-download
 	url = https://github.com/MaastrichtU-IDS/data2services-download.git
-[submodule "rdf4j-sparql-operations"]
-	path = submodules/rdf4j-sparql-operations
-	url = https://github.com/vemonet/rdf4j-sparql-operations.git
 [submodule "submodules/PyShEx"]
 	path = submodules/PyShEx
 	url = https://github.com/hsolbrig/PyShEx
