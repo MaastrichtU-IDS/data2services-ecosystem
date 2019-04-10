@@ -34,3 +34,6 @@
 [submodule "submodules/node-solid-server"]
 	path = submodules/node-solid-server
 	url = https://github.com/solid/node-solid-server
+[submodule "submodules/data2services-sparql-operations"]
+	path = submodules/data2services-sparql-operations
+	url = https://github.com/MaastrichtU-IDS/data2services-sparql-operations.git
