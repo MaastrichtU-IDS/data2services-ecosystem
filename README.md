@@ -138,6 +138,17 @@ docker run --rm -it pyshex -gn '' -ss -ut -pr \
 
 ---
 
+#### [BridgeDb](https://github.com/bridgedb/BridgeDb)
+
+[BridgeDb](https://www.bridgedb.org/) links URI identifiers from various datasets (Uniprot, PubMed).
+
+```shell
+docker pull bigcatum/bridgedb
+docker run -p 8183:8183 bigcatum/bridgedb
+```
+
+---
+
 # Store RDF
 
 #### [GraphDB](https://github.com/MaastrichtU-IDS/graphdb)
@@ -214,13 +225,13 @@ docker run -it -v /data/data2services:/data \
 
 # Access RDF
 
-#### [rdf4j-sparql-operations](http://github.com/vemonet/rdf4j-sparql-operations)
+#### [data2services-sparql-operations](https://github.com/MaastrichtU-IDS/data2services-sparql-operations)
 
 Execute [SPARQL](https://www.w3.org/TR/sparql11-query/) queries from string, URL or multiple files using [RDF4J](http://rdf4j.org/).
 
 ```shell
-docker build -t rdf4j-sparql-operations ./submodules/rdf4j-sparql-operations
-docker run -it --rm rdf4j-sparql-operations -op select \
+docker build -t data2services-sparql-operations ./submodules/data2services-sparql-operations
+docker run -it --rm data2services-sparql-operations -op select \
   -sp "select distinct ?Concept where {[] a ?Concept} LIMIT 10" \
   -ep "http://dbpedia.org/sparql"
 ```
@@ -290,10 +301,9 @@ Table of Contents
       * [<a href="https://github.com/LinkedDataFragments/Server.js">Linked Data Fragments Server</a>](#linked-data-fragments-server)
       * [<a href="https://github.com/vemonet/rdf2hdt">rdf2hdt</a>](#rdf2hdt)
    * [Access RDF](#access-rdf)
-      * [<a href="http://github.com/vemonet/rdf4j-sparql-operations">rdf4j-sparql-operations</a>](#rdf4j-sparql-operations)
+      * [<a href="http://github.com/MaastrichtU-IDS/data2services-sparql-operations">data2services-sparql-operations</a>](#rdf4j-sparql-operations)
       * [<a href="https://github.com/vemonet/comunica.git">Comunica</a>](#comunica)
       * [<a href="https://github.com/OpenTriply/YASGUI.server">YASGUI</a>](#yasgui)
       * [<a href="https://github.com/EBISPOT/lodestar">LODEstar</a>](#lodestar)
    * [Table of Contents](#table-of-contents)
 
-Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
