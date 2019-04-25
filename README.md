@@ -1,10 +1,10 @@
 # Get started
 
-This repository lists modules available for the **Data2Services framework**, enabling data processing to [RDF](https://www.w3.org/RDF/) and services exposure. 
+This repository lists modules available for the **Data2Services framework**, enabling data processing to [RDF](https://www.w3.org/RDF/) and services exposure. See the [data2services-pipeline repository](https://github.com/MaastrichtU-IDS/data2services-pipeline) for an example of a pipeline to convert various input source to RDF.
 
 Feel free to propose new modules using [pull requests](https://github.com/MaastrichtU-IDS/data2services-ecosystem/pulls). The list of modules we are planning to work on can be found in the [Wiki](https://github.com/MaastrichtU-IDS/data2services-ecosystem/wiki/Modules-to-develop).
 
-Only [Docker](https://docs.docker.com/install/) is required to run the modules. A typical module should only require a few arguments to be run, making it easy to combine them.
+Only [Docker](https://docs.docker.com/install/) is required to run the modules. A typical module should only require a few arguments to be run, making it easy to deploy and combine them.
 
 #### Clone
 
@@ -17,13 +17,16 @@ git submodule update --recursive --remote
 
 #### Build
 
-Convenience script to build and pull all Docker images. You **need to download** the [Apache Drill installation bundle](https://drill.apache.org/download/) and the [GraphDB standalone zip](https://www.ontotext.com/products/graphdb/) (register to get an email with download URL).
+We offer a convenience script to build and pull all Docker images. Each [Docker](https://docs.docker.com/install/) image can also be **built independently**.
+
+For *Apache Drill* and *GraphDB* you **need to download** an extra file:
+
+* [Apache Drill installation bundle](https://drill.apache.org/download/) (latest version) and the [GraphDB standalone zip](https://www.ontotext.com/products/graphdb/) (register to get an email with the download URL).
+* To be put respectively in `./submodules/apache-drill` and  `./submodules/graphdb`
 
 ```shell
 ./build.sh
 ```
-
-* Every [Docker](https://docs.docker.com/install/) images can also be built independently
 
 
 
@@ -31,7 +34,7 @@ Convenience script to build and pull all Docker images. You **need to download**
 
 #### [data2services-download](https://github.com/MaastrichtU-IDS/data2services-download)
 
-Download datasets using [Shell scripts](https://github.com/MaastrichtU-IDS/data2services-download/blob/master/datasets/TEMPLATE/download.sh).
+Download datasets using [Shell scripts](https://github.com/MaastrichtU-IDS/data2services-download/blob/master/datasets/TEMPLATE/download.sh). See [script example](https://github.com/MaastrichtU-IDS/data2services-download/blob/master/datasets/TEMPLATE/download.sh).
 
 ```shell
 docker build -t data2services-download ./submodules/data2services-download
