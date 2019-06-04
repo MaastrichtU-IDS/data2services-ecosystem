@@ -270,6 +270,8 @@ docker run -it --rm --name yasgui -p 8080:80 \
 - Require to [allow Cross-Origin Requests](https://addons.mozilla.org/fr/firefox/addon/cors-everywhere/)
 - Access at [http://localhost:8080/](http://localhost:8080/)
 
+---
+
 #### [LODEstar](https://github.com/EBISPOT/lodestar)
 
 [SPARQL](https://www.w3.org/TR/sparql11-query/) query and URI resolution.
@@ -281,8 +283,9 @@ docker run -d --rm --name lodestar -p 8080:8080 lodestar
 ```
 
 * Change SPARQL endpoint before *docker build* in `config-docker/lode.properties`
-
 * Access at [http://localhost:8080/lodestar](http://localhost:8080/lodestar)
+
+---
 
 Table of Contents
 =================
