@@ -167,7 +167,7 @@ docker run -d --rm --name graphdb -p 7200:7200 \
 	graphdb
 ```
 
-* Download [standalone zip file](https://www.ontotext.com/products/graphdb/) and place it in `submodules/graphdb` before *docker build*
+* Download [standalone zip file](https://www.ontotext.com/products/graphdb/) of free version, and place it in `submodules/graphdb` before *docker build*.
 * Access at [http://localhost:7200/](http://localhost:7200/)
 
 ---
@@ -230,7 +230,7 @@ docker run -it -v /data/data2services:/data \
 
 #### [data2services-sparql-operations](https://github.com/MaastrichtU-IDS/data2services-sparql-operations)
 
-Execute [SPARQL](https://www.w3.org/TR/sparql11-query/) queries from string, URL or multiple files using [RDF4J](http://rdf4j.org/).
+Execute [SPARQL](https://www.w3.org/TR/sparql11-query/) queries from string, URL or multiple files using [RDF4J](http://rdf4j.org/). See [documentation](https://maastrichtu-ids.github.io/data2services-sparql-operations/).
 
 ```shell
 docker build -t data2services-sparql-operations ./submodules/data2services-sparql-operations
@@ -241,7 +241,7 @@ docker run -it --rm data2services-sparql-operations -op select \
 
 ------
 
-#### [Comunica](https://github.com/vemonet/comunica.git)
+#### [Comunica](https://github.com/comunica/comunica)
 
 Framework to perform [federated queries](https://www.w3.org/TR/sparql11-federated-query/) over a lot of different stores (triplestores, [TPF](http://linkeddatafragments.org/in-depth/), [HDT](http://www.rdfhdt.org/)).
 
