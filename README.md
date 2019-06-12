@@ -233,8 +233,8 @@ docker run -it -v /data/data2services:/data \
 Execute [SPARQL](https://www.w3.org/TR/sparql11-query/) queries from string, URL or multiple files using [RDF4J](http://rdf4j.org/). See [documentation](https://maastrichtu-ids.github.io/data2services-sparql-operations/).
 
 ```shell
-docker build -t data2services-sparql-operations ./submodules/data2services-sparql-operations
-docker run -it --rm data2services-sparql-operations -op select \
+docker pull vemonet/data2services-sparql-operations
+docker run -it --rm vemonet/data2services-sparql-operations -op select \
   -sp "select distinct ?Concept where {[] a ?Concept} LIMIT 10" \
   -ep "http://dbpedia.org/sparql"
 ```
