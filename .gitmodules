@@ -25,9 +25,6 @@
 [submodule "Server.js"]
 	path = submodules/Server.js
 	url = https://github.com/LinkedDataFragments/Server.js
-[submodule "data2services-download"]
-	path = submodules/data2services-download
-	url = https://github.com/MaastrichtU-IDS/data2services-download.git
 [submodule "submodules/PyShEx"]
 	path = submodules/PyShEx
 	url = https://github.com/hsolbrig/PyShEx

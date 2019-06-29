@@ -37,8 +37,8 @@ For *Apache Drill* and *GraphDB* you **need to download** an extra file:
 Download datasets using [Shell scripts](https://github.com/MaastrichtU-IDS/data2services-download/blob/master/datasets/TEMPLATE/download.sh). See [script example](https://github.com/MaastrichtU-IDS/data2services-download/blob/master/datasets/TEMPLATE/download.sh).
 
 ```shell
-docker build -t data2services-download ./submodules/data2services-download
-docker run -it --rm -v /data/data2services:/data data2services-download \
+docker pull vemonet/data2services-download
+docker run -it --rm -v /data/data2services:/data vemonet/data2services-download \
 	--download-datasets aeolus,pharmgkb,ctd \
 	--username my_login --password my_password
 ```
