@@ -228,6 +228,8 @@ docker run -it -v /data/data2services:/data \
 
 # Access RDF
 
+## Programmatically
+
 #### [data2services-sparql-operations](https://github.com/MaastrichtU-IDS/data2services-sparql-operations)
 
 Execute [SPARQL](https://www.w3.org/TR/sparql11-query/) queries from string, URL or multiple files using [RDF4J](http://rdf4j.org/). See [documentation](https://maastrichtu-ids.github.io/data2services-sparql-operations/).
@@ -254,22 +256,33 @@ docker run -it comunica/actor-init-sparql \
 
 ---
 
-#### [Trifid](https://github.com/zazuko/trifid)
+## Dereferencing URI and browsing triplestores
 
-Linked Data Server: YASGUI editor, URI dereferencing, custom HTML render. Available on [DockerHub](https://hub.docker.com/r/zazuko/trifid/).
+#### [Trifid](https://github.com/vemonet/trifid)
+
+Linked Data Server: YASGUI editor, URI dereferencing, custom HTML render.
+
+```shell
+git clone https://github.com/vemonet/trifid
+docker build -t trifid ./trifid
+
+docker run --rm -ti --name trifid -p 8080:8080 trifid --sparql-endpoint-url=http://graphdb.dumontierlab.com/repositories/test --dataset-base-url=https://w3id.org/data2services/
+
+docker run --rm -ti --name trifid -v /home/vemonet/sandbox/trifid:/data -p 8080:8080 trifid --config=/data/config-ncats-red-kg.json
+```
+
+* Access https://w3id.org/data2services/dataset/huri/ 
+
+* Through http://localhost:8080/dataset/huri/
+
+[Original project](https://github.com/zazuko/trifid) available on [DockerHub](https://hub.docker.com/r/zazuko/trifid/). But config not working.
 
 ```shell
 docker pull zazuko/trifid
 docker run -ti -p 8080:8080 zazuko/trifid
 # Not working, provide env config file?
 docker run -ti -p 8080:8080 -e TRIFID_CONFIG=config-ncats-red-kg.json zazuko/trifid
-
-docker build -t trifid .
-# Fix: using trifid as entrypoint in Dockerfile. But not restricting to 
-docker run --rm -ti --name trifid -p 8080:8080 trifid --sparql-endpoint-url=http://graphdb.dumontierlab.com/repositories/test --dataset-base-url=https://w3id.org/data2services/
-
-# Access https://w3id.org/data2services/dataset/huri/ 
-# On http://localhost:8080/dataset/huri/
+docker run -ti -p 8080:8080 -e SPARQL_ENDPOINT_URL=http://graphdb.dumontierlab.com/repositories/test -e DATASET_BASE_URL=https://w3id.org/data2services/ zazuko/trifid
 ```
 
 * Access [default example](https://github.com/zazuko/tbbt-ld/blob/master/dist/tbbt.nq) on http://localhost:8080/data/person/mary-cooper to resolve URI.
