@@ -37,7 +37,7 @@ For *Apache Drill* and *GraphDB* you **need to download** an extra file:
 Download datasets using [Shell scripts](https://github.com/MaastrichtU-IDS/data2services-download/blob/master/datasets/TEMPLATE/download.sh). See [script example](https://github.com/MaastrichtU-IDS/data2services-download/blob/master/datasets/TEMPLATE/download.sh).
 
 ```shell
-docker pull vemonet/data2services-download
+docker pull vemonet/data2services-download:latest
 docker run -it --rm -v /data/data2services:/data vemonet/data2services-download \
 	--download-datasets aeolus,pharmgkb,ctd \
 	--username my_login --password my_password
@@ -50,8 +50,8 @@ docker run -it --rm -v /data/data2services:/data vemonet/data2services-download 
 Streams XML to a [generic RDF](https://github.com/MaastrichtU-IDS/xml2rdf#rdf-model) representing the structure of the file. 
 
 ```shell
-docker build -t xml2rdf ./submodules/xml2rdf
-docker run --rm -it -v /data:/data xml2rdf  \
+docker pull vemonet/xml2rdf:latest
+docker run --rm -it -v /data:/data vemonet/xml2rdf  \
 	-i "/data/data2services/file.xml.gz" \
 	-o "/data/data2services/file.nq.gz" \
 	-g "https://w3id.org/data2services/graph"
@@ -66,9 +66,9 @@ Exposes tabular text files (CSV, TSV, PSV) as SQL, and enables queries on large 
 ```shell
 wget -N http://apache.40b.nl/drill/drill-1.15.0/apache-drill-1.15.0.tar.gz -o ./submodules/apache-drill/apache-drill-1.15.0.tar.gz
 docker-compose up drill
-docker build -t apache-drill ./submodules/apache-drill
+docker pull vemonet/apache-drill:latest
 docker run -dit --rm -p 8047:8047 -p 31010:31010 \
-	--name drill -v /data:/data:ro apache-drill
+	--name drill -v /data:/data:ro vemonet/apache-drill
 ```
 
 * Download [Apache Drill install bundle](http://apache.40b.nl/drill/drill-1.15.0/apache-drill-1.15.0.tar.gz)
@@ -82,9 +82,9 @@ docker run -dit --rm -p 8047:8047 -p 31010:31010 \
 Automatically generate [R2RML](https://www.w3.org/TR/r2rml/) files from Relational databases (SQL, Postgresql).
 
 ```shell
-docker build -t autor2rml ./submodules/AutoR2RML
+docker pull vemonet/autor2rml:latest
 docker run -it --rm --link drill:drill --link postgres:postgres -v /data:/data \
-	autor2rml -j "jdbc:drill:drillbit=drill:31010" -r \
+	vemonet/autor2rml -j "jdbc:drill:drillbit=drill:31010" -r \
 	-o "/data/data2services/mapping.trig" \
 	-d "/data/data2services" \
 	-u "postgres" -p "pwd" \
@@ -101,9 +101,9 @@ docker run -it --rm --link drill:drill --link postgres:postgres -v /data:/data \
 Convert Relational Databases to RDF using the [R2RML](https://www.w3.org/TR/r2rml/) mapping language.
 
 ```shell
-docker build -t r2rml ./submodules/r2rml
+docker pull vemonet/r2rml:latest
 docker run -it --rm --link drill:drill --link postgres:postgres \
-	-v /data:/data r2rml /data/config.properties
+	-v /data:/data vemonet/r2rml /data/config.properties
 ```
 
 * Require a [config.properties](https://github.com/amalic/r2rml/blob/master/example/config.properties) file
@@ -116,9 +116,9 @@ docker run -it --rm --link drill:drill --link postgres:postgres \
 Upload RDF files to a triplestore.
 
 ```shell
-docker build -t rdf-upload ./submodules/RdfUpload
+docker pull rdf-upload:latest
 docker run -it --rm --link graphdb:graphdb -v /data/data2services:/data \
-	rdf-upload -m "HTTP" -if "/data" \
+	vemonet/rdf-upload -m "HTTP" -if "/data" \
 	-url "http://graphdb:7200" -rep "test" \
 	-un "username" -pw "password"
 ```
