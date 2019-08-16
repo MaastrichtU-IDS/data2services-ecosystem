@@ -271,9 +271,8 @@ docker run --rm -ti --name trifid -p 8080:8080 trifid --sparql-endpoint-url=http
 docker run --rm -ti --name trifid -v /home/vemonet/sandbox/trifid:/data -p 8080:8080 trifid --config=/data/config-ncats-red-kg.json
 ```
 
-* Access https://w3id.org/data2services/dataset/huri/ 
-
-* Through http://localhost:8080/dataset/huri/
+* Go to http://localhost:8080/dataset/huri/
+* To resolve https://w3id.org/data2services/dataset/huri/ 
 
 [Original project](https://github.com/zazuko/trifid) available on [DockerHub](https://hub.docker.com/r/zazuko/trifid/). But config not working.
 
