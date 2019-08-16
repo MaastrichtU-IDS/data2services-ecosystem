@@ -34,7 +34,7 @@ For *Apache Drill* and *GraphDB* you **need to download** an extra file:
 
 #### [data2services-download](https://github.com/MaastrichtU-IDS/data2services-download)
 
-Download datasets using [Shell scripts](https://github.com/MaastrichtU-IDS/data2services-download/blob/master/datasets/TEMPLATE/download.sh). See [script example](https://github.com/MaastrichtU-IDS/data2services-download/blob/master/datasets/TEMPLATE/download.sh).
+Download datasets using Shell scripts. See [script example](https://github.com/MaastrichtU-IDS/data2services-download/blob/master/datasets/TEMPLATE/download.sh).
 
 ```shell
 docker pull vemonet/data2services-download:latest
@@ -42,6 +42,8 @@ docker run -it --rm -v /data/data2services:/data vemonet/data2services-download 
 	--download-datasets aeolus,pharmgkb,ctd \
 	--username my_login --password my_password
 ```
+
+See on [DockerHub](https://hub.docker.com/r/vemonet/data2services-download).
 
 ---
 
@@ -57,6 +59,8 @@ docker run --rm -it -v /data:/data vemonet/xml2rdf  \
 	-g "https://w3id.org/data2services/graph"
 ```
 
+* See on [DockerHub](https://hub.docker.com/r/vemonet/xml2rdf).
+
 ---
 
 #### [Apache Drill](https://github.com/amalic/apache-drill)
@@ -70,9 +74,9 @@ docker run -dit --rm -p 8047:8047 -p 31010:31010 \
 	--name drill -v /data:/data:ro vemonet/apache-drill
 ```
 
-* Download [Apache Drill install bundle](http://apache.40b.nl/drill/drill-1.15.0/apache-drill-1.15.0.tar.gz)
-* Access at [http://localhost:8047/](http://localhost:8047/)
-* Used by [AutoR2RML](https://github.com/amalic/AutoR2RML) and [R2RML](https://github.com/amalic/r2rml) to convert tabular files to a generic RDF representation
+* Access at [http://localhost:8047/](http://localhost:8047/).
+* Used by [AutoR2RML](https://github.com/amalic/AutoR2RML) and [R2RML](https://github.com/amalic/r2rml) to convert tabular files to a generic RDF representation.
+* See on [DockerHub](https://hub.docker.com/r/vemonet/apache-drill).
 
 ---
 
@@ -92,6 +96,7 @@ docker run -it --rm --link drill:drill --link postgres:postgres -v /data:/data \
 ```
 
 * Can be combined with [Apache Drill](https://github.com/amalic/apache-drill) to process tabular files.
+* See on [DockerHub](https://hub.docker.com/r/vemonet/autor2rml).
 
 ---
 
@@ -107,6 +112,7 @@ docker run -it --rm --link drill:drill --link postgres:postgres \
 
 * Require a [config.properties](https://github.com/amalic/r2rml/blob/master/example/config.properties) file
 * Can be combined with [Apache Drill](https://github.com/amalic/apache-drill) to process tabular files.
+* See on [DockerHub](https://hub.docker.com/r/vemonet/r2rml).
 
 ---
 
@@ -115,7 +121,7 @@ docker run -it --rm --link drill:drill --link postgres:postgres \
 Upload RDF files to a triplestore.
 
 ```shell
-docker pull rdf-upload:latest
+docker pull vemonet/rdf-upload:latest
 docker run -it --rm --link graphdb:graphdb -v /data/data2services:/data \
 	vemonet/rdf-upload -m "HTTP" -if "/data" \
 	-url "http://graphdb:7200" -rep "test" \
@@ -123,6 +129,7 @@ docker run -it --rm --link graphdb:graphdb -v /data/data2services:/data \
 ```
 
 * Only tested on [GraphDB](https://github.com/MaastrichtU-IDS/graphdb) at the moment
+* See on [DockerHub](https://hub.docker.com/r/vemonet/rdf-upload).
 
 ---
 
@@ -231,7 +238,7 @@ docker run -it -v /data/data2services:/data \
 
 #### [data2services-sparql-operations](https://github.com/MaastrichtU-IDS/data2services-sparql-operations)
 
-Execute [SPARQL](https://www.w3.org/TR/sparql11-query/) queries from string, URL or multiple files using [RDF4J](http://rdf4j.org/). See [documentation](https://maastrichtu-ids.github.io/data2services-sparql-operations/).
+Execute [SPARQL](https://www.w3.org/TR/sparql11-query/) queries from string, URL or multiple files using [RDF4J](http://rdf4j.org/).
 
 ```shell
 docker pull vemonet/data2services-sparql-operations
@@ -239,6 +246,9 @@ docker run -it --rm vemonet/data2services-sparql-operations -op select \
   -sp "select distinct ?Concept where {[] a ?Concept} LIMIT 10" \
   -ep "http://dbpedia.org/sparql"
 ```
+
+* See [documentation](https://maastrichtu-ids.github.io/data2services-sparql-operations/).
+* See on [DockerHub](https://hub.docker.com/r/vemonet/data2services-sparql-operations).
 
 ------
 
