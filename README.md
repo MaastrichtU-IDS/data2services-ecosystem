@@ -64,7 +64,6 @@ docker run --rm -it -v /data:/data vemonet/xml2rdf  \
 Exposes tabular text files (CSV, TSV, PSV) as SQL, and enables queries on large datasets.
 
 ```shell
-wget -N http://apache.40b.nl/drill/drill-1.15.0/apache-drill-1.15.0.tar.gz -o ./submodules/apache-drill/apache-drill-1.15.0.tar.gz
 docker-compose up drill
 docker pull vemonet/apache-drill:latest
 docker run -dit --rm -p 8047:8047 -p 31010:31010 \

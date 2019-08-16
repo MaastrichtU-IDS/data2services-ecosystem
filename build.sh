@@ -6,14 +6,14 @@ if ! [ -f submodules/apache-drill/apache-drill-1.15.0.tar.gz ]; then
   curl http://apache.40b.nl/drill/drill-1.15.0/apache-drill-1.15.0.tar.gz -o submodules/apache-drill/apache-drill-1.15.0.tar.gz
 fi
 
-docker pull vemonet/rdf4j-sparql-operations
-docker pull vemonet/apache-drill
-docker pull vemonet/autor2rml
-docker pull vemonet/r2rml
-docker pull vemonet/xml2rdf
-docker pull vemonet/rdf-upload
-docker pull vemonet/data2services-download
-docker pull comunica/actor-init-sparql
+docker pull vemonet/rdf4j-sparql-operations:latest
+docker pull vemonet/apache-drill:latest
+docker pull vemonet/autor2rml:latest
+docker pull vemonet/r2rml:latest
+docker pull vemonet/xml2rdf:latest
+docker pull vemonet/rdf-upload:latest
+docker pull vemonet/data2services-download:latest
+docker pull comunica/actor-init-sparql:latest
 docker build -t pyshex ./submodules/PyShEx/docker
 docker build -t graphdb ./submodules/graphdb
 

@@ -2,7 +2,7 @@ version: "3"
 services:
     
   drill:
-    build: ./submodules/apache-drill
+    image: vemonet/apache-drill
     volumes:
       - /data:/data:ro
     ports:
