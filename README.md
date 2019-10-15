@@ -1,3 +1,6 @@
+DEPRECATED. See http://d2s.semanticscience.org for Data2Services documentation.
+
+
 # Get started
 
 This repository lists modules available for the **Data2Services framework**, enabling data processing to [RDF](https://www.w3.org/RDF/) and services exposure. See the [data2services-pipeline](https://github.com/MaastrichtU-IDS/data2services-pipeline) repository for an example of a pipeline to convert various input source to RDF.
